@@ -356,10 +356,10 @@ function changeSlide() {
             inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
 
             for (let i = 0; i < inputsDoSLide.length; i++) {
-                console.log('inputsDoSLide LENGTH: ' + inputsDoSLide);
+                console.log('inputsDoSLide : ' + inputsDoSLide);
                 console.log('inputsDoSLide LENGTH: ' + inputsDoSLide.length);
-                console.log('inputsDoSLide LENGTH: ' + inputsDoSLide[i].type);
-                console.log('inputsDoSLide LENGTH: ' + inputsDoSLide[i].value);
+                console.log('inputsDoSLide TYPE: ' + inputsDoSLide[i].type);
+                console.log('inputsDoSLide VALUE: ' + inputsDoSLide[i].value);
 
                 inputsDoSLide[i].oninput = function () {
                     //console.log('changeou um input: ' + inputsDoSLide[i].type + ' - ' + inputsDoSLide[i].value);
