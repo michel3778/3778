@@ -58,26 +58,26 @@ if (iscaParam != '') { tags.tagIsca = iscaParam; console.log('Isca foi!'); };
 
 
 let validRegex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-let selectCargo = formElement.querySelector('[name="MMERGE12"]');
-let selectCargoFake = formElement.querySelector('[name="MMERGE12FAKE"]');
-let outroCargo = formElement.querySelector('[name="outro_cargo"]');
-let selectSegmento = formElement.querySelector('[name="MMERGE15"]');
-let selectSegmentoFake = formElement.querySelector('[name="MMERGE15FAKE"]');
-let outroSegmento = formElement.querySelector('[name="outro_segmento"]');
-let selectDepartamento = formElement.querySelector('[name="DEPARTAMENTO"]');
-let selectDepartamentoFake = formElement.querySelector('[name="DEPARTAMENTOFAKE"]');
-let outroDepartamento = formElement.querySelector('[name="outro_departamento"]');
-let selectCargoDepartamento = formElement.querySelector('[name="CARGO_DEPARTAMENTO"]');
-let selectFuncionarios = formElement.querySelector('[name="MMERGE31"]');
+//let selectCargo = formElement.querySelector('[name="MMERGE12"]');
+//let selectCargoFake = formElement.querySelector('[name="MMERGE12FAKE"]');
+//let outroCargo = formElement.querySelector('[name="outro_cargo"]');
+//let selectSegmento = formElement.querySelector('[name="MMERGE15"]');
+//let selectSegmentoFake = formElement.querySelector('[name="MMERGE15FAKE"]');
+//let outroSegmento = formElement.querySelector('[name="outro_segmento"]');
+//let selectDepartamento = formElement.querySelector('[name="DEPARTAMENTO"]');
+//let selectDepartamentoFake = formElement.querySelector('[name="DEPARTAMENTOFAKE"]');
+//let outroDepartamento = formElement.querySelector('[name="outro_departamento"]');
+//let selectCargoDepartamento = formElement.querySelector('[name="CARGO_DEPARTAMENTO"]');
+//let selectFuncionarios = formElement.querySelector('[name="MMERGE31"]');
 let btnSubmit = formElement.querySelector('input[type=submit]');
 //let inputMail = formElement.querySelector('input[type=email]');
 //let labelMail = inputMail.parentElement.querySelector('label');
 let textError = formElement.querySelectorAll('.msg-error');
-let tagElement = formElement.querySelector('#tags');
+//let tagElement = formElement.querySelector('#tags');
 let prioridadeElement = formElement.querySelector('#prioridade');
 let qualificacaoElement = formElement.querySelector('#Qualificacao');
 let projetoElement = formElement.querySelector('#Projeto');
-let iscaElement = formElement.querySelector('#Isca');
+//let iscaElement = formElement.querySelector('#Isca');
 let funilElement = formElement.querySelector('#Funil');
 let inputTelefoneFake = formElement.querySelector('[name="MMERGE6FAKE"]');
 let inputTelefoneSend = formElement.querySelector('[name="MMERGE6"]');
@@ -104,97 +104,12 @@ refreshTags();
 
 
 
-//SELECT CARGO >>>>>>>>>>
-selectCargoFake.onchange = function () {
-    var cargoValue = this.value;
-    selectCargo.value = cargoValue;
-    selectCargoDepartamento.value = selectCargo.value + ' ' + selectDepartamento.value;
-    if (cargoValue == "") {
-        selectCargo.value = '';
-        outroCargo.value = '';
-        outroCargo.style.display = 'none';
-    } else if (cargoValue !== "" && cargoValue !== "Outro") {
-        outroCargo.value = '';
-        outroCargo.style.display = 'none';
-        outroCargo.required = false;
-    } else if (cargoValue !== "" && cargoValue == "Outro") {
-        outroCargo.style.display = 'block';
-        outroCargo.required = true;
-    }
-    refreshTags();
-};
-
-outroCargo.oninput = function () {
-    var outroCargoValue = this.value;
-    selectCargo.value = outroCargoValue;
-    selectCargoDepartamento.value = selectCargo.value + ' ' + selectDepartamento.value;
-    refreshTags();
-};
-
 
 
 // SEGUNDO SCRIPT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
 
-
-//SELECT DEPARTAMENTO >>>>>>>>>>
-function funcSelectDepartamentoFake(element) {
-    var departamentoValue = element.value;
-    selectDepartamento.value = departamentoValue;
-    selectCargoDepartamento.value = selectCargo.value + ' ' + selectDepartamento.value;
-
-    if (departamentoValue !== "" && departamentoValue !== "Outro") {
-        //				outroDepartamento.value = '';
-        //				outroDepartamento.style.display = 'none';
-        //				outroDepartamento.required = false;
-        //        document.querySelector('#outro_departamento').forEach(function(el) {el.remove();});
-        if (document.querySelector('#outro_departamento')) {
-            console.log('ta entrando')
-            document.querySelector('#outro_departamento').remove();
-            //						dodument.querySelector('#outro_departamento').forEach(function(el) {el.remove();});
-        };
-    } else if (departamentoValue !== "" && departamentoValue == "Outro") {
-        element.parentNode.innerHTML += '<input type="text" class="fs-16 lh-base rounded-4 border-0 mb-24 bg-white px-16 h-44 py-0 w-input" maxlength="256" name="outro_departamento" data-name="outro_departamento" placeholder="Outro departamento" id="outro_departamento" style="display: block;" required>';
-        //				outroDepartamento.style.display = 'block';
-        //				outroDepartamento.required = true;
-    }
-    refreshTags();
-};
-
-function funcOutroDepartamento(element) {
-    var outroDepartamentoValue = element.value;
-    selectDepartamento.value = outroDepartamentoValue;
-    selectCargoDepartamento.value = selectCargo.value + ' ' + outroDepartamentoValue;
-    refreshTags();
-};
-
-
-//SELECT SEGMENTO >>>>>>>>>>
-function funcSelectSegmentoFake(element) {
-    var segmentoValue = element.value;
-    selectSegmento.value = segmentoValue;
-    if (segmentoValue == "") {
-        selectSegmento.value = '';
-        outroSegmento.value = '';
-        outroSegmento.style.display = 'none';
-    } else if (segmentoValue !== "" && segmentoValue !== "Outro") {
-        outroSegmento.value = '';
-        outroSegmento.style.display = 'none';
-        outroSegmento.required = false;
-    } else if (segmentoValue !== "" && segmentoValue == "Outro") {
-        outroSegmento.style.display = 'block';
-        outroSegmento.required = true;
-    }
-    refreshTags();
-};
-
-function funcOutroSegmento(element) {
-    var outroSegmentoValue = element.value;
-    outroSegmentoValue.value = outroSegmentoValue;
-    selectSegmento.value = outroSegmentoValue;
-    refreshTags();
-};
 
 //E_MAIL >>>>>>>>>>
 function funcInputMail(element) {
