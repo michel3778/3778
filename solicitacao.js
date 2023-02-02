@@ -313,9 +313,9 @@ function changeSlide() {
 
 
 
-btnComecar.onclick = function (event) { event.preventDefault(); nextSlide.click(); changeSlide(); };
+// btnComecar.onclick = function (event) { event.preventDefault(); nextSlide.click(); changeSlide(); };
 document.addEventListener('click', function handleClick(event) {
-    if (inputsDoSLide[i].id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
+    if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
     if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
     if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
     
