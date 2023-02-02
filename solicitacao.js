@@ -56,7 +56,6 @@ let tags = {
 if (origemParam != '') { tags.tagOrigem = origemParam; console.log('Origem foi!'); };
 if (iscaParam != '') { tags.tagIsca = iscaParam; console.log('Isca foi!'); };
 
-
 let validRegex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 //let selectCargo = formElement.querySelector('[name="MMERGE12"]');
 //let selectCargoFake = formElement.querySelector('[name="MMERGE12FAKE"]');
@@ -85,9 +84,9 @@ let categoriaElement = formElement.querySelector('[name="sendCategoria"]');
 let origemElement = formElement.querySelector('#Origem');
 
 origemElement.value = tags.tagOrigem;
-projetoElement.value = projetoValue;
-iscaElement.value = tags.tagIsca;
-categoriaElement.value = tags.tagCategoria;
+//projetoElement.value = projetoValue;
+//iscaElement.value = tags.tagIsca;
+//categoriaElement.value = tags.tagCategoria;
 
 formElement.querySelector('#pageTitle').value = window.document.title;
 formElement.querySelector('#pageUrl').value = window.location.href;
