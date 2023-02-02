@@ -162,81 +162,6 @@ function funcInputMail(element) {
     //refreshTags();
 };
 
-//FUNCIONARIOS >>>>>>>>>>
-function funcSelectFuncionarios(element) {
-    qtdFuncionarios = element.value;
-
-    if (qtdFuncionarios < 0) {
-        selectFuncionarios.value = 0;
-        qtdFuncionarios = 0;
-        prioridadeElement.value = '';
-        funilElement.value = tags.tagFunil = '';
-        qualificacaoElement.value = tags.tagQualificacao = qualificacaoValue.opcao0;
-        categoriaElement.value = tags.tagCategoria = categoriaValue.opcao0;
-
-    } else if (qtdFuncionarios >= qualificacaoPme[0] && qtdFuncionarios < qualificacaoPme[1]) {
-        prioridadeElement.value = '';
-        funilElement.value = tags.tagFunil = '';
-        qualificacaoElement.value = tags.tagQualificacao = qualificacaoValue.opcao1;
-        categoriaElement.value = tags.tagCategoria = categoriaValue.opcao1;
-
-    } else if (qtdFuncionarios >= qualificacaoMiddle[0] && qtdFuncionarios < qualificacaoMiddle[1]) {
-        prioridadeElement.value = prioridadeValue;
-        funilElement.value = tags.tagFunil = funilValue.opcao2;
-        qualificacaoElement.value = tags.tagQualificacao = qualificacaoValue.opcao2;
-        categoriaElement.value = tags.tagCategoria = categoriaValue.opcao2;
-
-    } else if (qtdFuncionarios >= qualificacaoHiMiddle[0] && qtdFuncionarios < qualificacaoHiMiddle[1]) {
-        prioridadeElement.value = prioridadeValue;
-        funilElement.value = tags.tagFunil = funilValue.opcao2;
-        qualificacaoElement.value = tags.tagQualificacao = qualificacaoValue.opcao2;
-        categoriaElement.value = tags.tagCategoria = categoriaValue.opcao3;
-
-    } else if (qtdFuncionarios >= qualificacaoCorp[0] && qtdFuncionarios < qualificacaoCorp[1]) {
-        prioridadeElement.value = prioridadeValue;
-        funilElement.value = tags.tagFunil = funilValue.opcao2;
-        qualificacaoElement.value = tags.tagQualificacao = qualificacaoValue.opcao2;
-        categoriaElement.value = tags.tagCategoria = categoriaValue.opcao4;
-
-    } else if (qtdFuncionarios >= qualificacaoHiCorp[0] && qtdFuncionarios < qualificacaoHiCorp[1]) {
-        prioridadeElement.value = prioridadeValue;
-        funilElement.value = tags.tagFunil = funilValue.opcao2;
-        qualificacaoElement.value = tags.tagQualificacao = qualificacaoValue.opcao2;
-        categoriaElement.value = tags.tagCategoria = categoriaValue.opcao5;
-
-    } else {
-        prioridadeElement.value = prioridadeValue;
-        funilElement.value = tags.tagFunil = funilValue.opcao2;
-        qualificacaoElement.value = tags.tagQualificacao = qualificacaoValue.opcao2;
-        categoriaElement.value = tags.tagCategoria = categoriaValue.opcao5;
-    };
-
-    //refreshTags();
-};
-
-//TELEFONE >>>>>>>>>>
-function funcInputTelefoneFake(element) {
-    element.value = phoneMask(element.value);
-    var convertPhoneValue = element.value.replace(/\D/g, '');
-    inputTelefoneSend.value = '+55' + convertPhoneValue;
-    //refreshTags();
-}
-
-function phoneMask(phone) {
-    if (phone.length < 15) {
-        return phone.replace(/\D/g, '')
-            .replace(/^(\d)/, '($1')
-            .replace(/^(\(\d{2})(\d)/, '$1) $2')
-            .replace(/(\d{4})(\d{1,5})/, '$1-$2')
-            .replace(/(-\d{4})\d+?$/, '$1');
-    } else {
-        return phone.replace(/\D/g, '')
-            .replace(/^(\d)/, '($1')
-            .replace(/^(\(\d{2})(\d)/, '$1) $2')
-            .replace(/(\d{5})(\d{1,5})/, '$1-$2')
-            .replace(/(-\d{4})\d+?$/, '$1');
-    }
-}
 
 //ENVIO DO FORM >>>>>>>>>>
 formElement.onsubmit = async function handleSubmit(event) {
@@ -344,7 +269,9 @@ function ativaAvancar() {
     }, 50) 
 };
 
- 
+ function getInputs(params) {
+    inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
+ };
  
 
 function changeSlide() {
@@ -353,7 +280,8 @@ function changeSlide() {
             //      	osSlides[i].style.backgroundColor = 'white';
         } else { //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SLIDE ATUAL AQUI
             //        osSlides[i].style.backgroundColor = 'red'; 
-            inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
+            
+            getInputs();
 
             for (let i = 0; i < inputsDoSLide.length; i++) {
                 console.log('inputsDoSLide : ' + inputsDoSLide);
@@ -363,13 +291,13 @@ function changeSlide() {
 
                 inputsDoSLide[i].oninput = function () {
                     //console.log('changeou um input: ' + inputsDoSLide[i].type + ' - ' + inputsDoSLide[i].value);
-                    if (inputsDoSLide[i].id == 'MMERGE6FAKE') { funcInputTelefoneFake(this); };
-                    if (inputsDoSLide[i].id == 'MMERGE31') { funcSelectFuncionarios(this); };
+                    //if (inputsDoSLide[i].id == 'MMERGE6FAKE') { funcInputTelefoneFake(this); };
+                    //if (inputsDoSLide[i].id == 'MMERGE31') { funcSelectFuncionarios(this); };
                     if (inputsDoSLide[i].id == 'EMAIL') { funcInputMail(this); };
-                    if (inputsDoSLide[i].id == 'MMERGE15FAKE') { funcSelectSegmentoFake(this); };
-                    if (inputsDoSLide[i].id == 'outro_segmento') { funcOutroSegmento(this); };
-                    if (inputsDoSLide[i].id == 'DEPARTAMENTOFAKE') { funcSelectDepartamentoFake(this); };
-                    if (inputsDoSLide[i].id == 'outro_departamento') { funcOutroDepartamento(this); };
+                    //if (inputsDoSLide[i].id == 'MMERGE15FAKE') { funcSelectSegmentoFake(this); };
+                    //if (inputsDoSLide[i].id == 'outro_segmento') { funcOutroSegmento(this); };
+                    //if (inputsDoSLide[i].id == 'DEPARTAMENTOFAKE') { funcSelectDepartamentoFake(this); };
+                    //if (inputsDoSLide[i].id == 'outro_departamento') { funcOutroDepartamento(this); };
 
                     ativaAvancar();
                     resizear();
@@ -387,6 +315,8 @@ btnComecar.onclick = function (event) { event.preventDefault(); nextSlide.click(
 document.addEventListener('click', function handleClick(event) {
     if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
     if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
+    if (event.event.target.id.contains('addUnidade')) { event.preventDefault(); alert('addUnidade'); };
+    if (event.event.target.id.contains('removeUnidade')) { event.preventDefault(); alert('removeUnidade'); };
 });
 
 
