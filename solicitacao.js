@@ -94,12 +94,14 @@ formElement.querySelector('#pageTitle').value = window.document.title;
 formElement.querySelector('#pageUrl').value = window.location.href;
 formElement.querySelector('#formName').value = formElement.id;
 
+/* 
 function refreshTags() {
     tagElement.value = Object.values(tags).join(', ');
     console.log('tags: ' + JSON.stringify(tags));
     //			console.log(tagElement.value);
 };
 refreshTags();
+*/
 
 // <<< INIT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
