@@ -319,8 +319,8 @@ document.addEventListener('click', function handleClick(event) {
     if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
     if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
     
-    if (inputsDoSLide[i].id == 'addUnidade') { alert('addUnidade'); };
-    if (inputsDoSLide[i].id == 'removeUnidade') { alert('removeUnidade'); };
+    if (inputsDoSLide[i].target.id == 'addUnidade') { alert('addUnidade'); };
+    if (inputsDoSLide[i].target.id == 'removeUnidade') { alert('removeUnidade'); };
     //if (event.target.id.contains('addUnidade')) { event.preventDefault(); alert('addUnidade'); };
     //if (event.target.id.contains('removeUnidade')) { event.preventDefault(); alert('removeUnidade'); };
 });
