@@ -157,7 +157,7 @@ function funcInputMail(element) {
         btnSubmit.classList.add('btn-disable');
         textError.forEach(function (element, index) { element.style.display = 'inline-block'; });
     };
-    refreshTags();
+    //refreshTags();
 };
 
 //FUNCIONARIOS >>>>>>>>>>
@@ -209,7 +209,7 @@ function funcSelectFuncionarios(element) {
         categoriaElement.value = tags.tagCategoria = categoriaValue.opcao5;
     };
 
-    refreshTags();
+    //refreshTags();
 };
 
 //TELEFONE >>>>>>>>>>
@@ -217,7 +217,7 @@ function funcInputTelefoneFake(element) {
     element.value = phoneMask(element.value);
     var convertPhoneValue = element.value.replace(/\D/g, '');
     inputTelefoneSend.value = '+55' + convertPhoneValue;
-    refreshTags();
+    //refreshTags();
 }
 
 function phoneMask(phone) {
