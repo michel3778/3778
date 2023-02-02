@@ -308,23 +308,16 @@ function changeSlide() {
         }
     }
     ativaAvancar();
+
+    document.addEventListener('click', function handleClick(event) {
+        if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
+        if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
+        if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
+        
+        if (event.target.id == 'addUnidade') { alert('addUnidade'); };
+        if (event.target.id == 'removeUnidade') { alert('removeUnidade'); };
+    });
 };
-
-
-
-
-// btnComecar.onclick = function (event) { event.preventDefault(); nextSlide.click(); changeSlide(); };
-document.addEventListener('click', function handleClick(event) {
-    if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
-    if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
-    if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
-    
-    if (event.target.id == 'addUnidade') { alert('addUnidade'); };
-    if (event.target.id == 'removeUnidade') { alert('removeUnidade'); };
-    //if (event.target.id.contains('addUnidade')) { event.preventDefault(); alert('addUnidade'); };
-    //if (event.target.id.contains('removeUnidade')) { event.preventDefault(); alert('removeUnidade'); };
-});
-
 
 
 function resizear() {
