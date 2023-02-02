@@ -269,9 +269,7 @@ function ativaAvancar() {
     }, 50) 
 };
 
- function getInputs(params) {
-    inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
- };
+ 
  
 
 function changeSlide() {
@@ -281,7 +279,11 @@ function changeSlide() {
         } else { //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SLIDE ATUAL AQUI
             //        osSlides[i].style.backgroundColor = 'red'; 
             
-            getInputs();
+            function getInputs(params) {
+                inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
+             };
+
+             getInputs();
 
             for (let i = 0; i < inputsDoSLide.length; i++) {
                 console.log('inputsDoSLide : ' + inputsDoSLide);
