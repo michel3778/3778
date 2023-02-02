@@ -136,7 +136,7 @@
 
 
 
-</input>
+
         //SELECT DEPARTAMENTO >>>>>>>>>>
             function funcSelectDepartamentoFake (element){
                 var departamentoValue = element.value;
@@ -376,6 +376,9 @@
 
 
 //TERCEIRO SCRIPT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
 
 
   let oSlider					= document.querySelector('#slider-pedido');
