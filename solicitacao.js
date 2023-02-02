@@ -418,7 +418,7 @@ function ativaAvancar() {
                 btsAvancar[i].style.backgroundColor = 'grey';
             };
         }
-    }, 50)
+    }, 50) 
 };
 
 
