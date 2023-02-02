@@ -359,7 +359,7 @@ function changeSlide() {
                 //        	console.log(inputsDoSLide[i].value);
 
                 inputsDoSLide[i].oninput = function () {
-                    console.log('changeou um input: ' + inputsDoSLide[i].type + ' - ' + inputsDoSLide[i].value);
+                    //console.log('changeou um input: ' + inputsDoSLide[i].type + ' - ' + inputsDoSLide[i].value);
                     if (inputsDoSLide[i].id == 'MMERGE6FAKE') { funcInputTelefoneFake(this); };
                     if (inputsDoSLide[i].id == 'MMERGE31') { funcSelectFuncionarios(this); };
                     if (inputsDoSLide[i].id == 'EMAIL') { funcInputMail(this); };
