@@ -269,8 +269,8 @@ function ativaAvancar() {
     }, 50) 
 };
 
- function clickListener() {
-    document.addEventListener('click', function handleClick(event) {
+ //function clickListener() {
+    oSlider.addEventListener('click', function handleClick(event) {
         if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
@@ -278,7 +278,7 @@ function ativaAvancar() {
         if (event.target.id == 'addUnidade') { alert('addUnidade'); };
         if (event.target.id == 'removeUnidade') { alert('removeUnidade'); };
     });
- }
+ //}
  
 
 function changeSlide() {
@@ -317,10 +317,10 @@ function changeSlide() {
         }
     }
     ativaAvancar();
-    clickListener();
+    //clickListener();
 };
 
-clickListener();
+//clickListener();
 
 function resizear() {
     oSlider.style.height = 'auto';
