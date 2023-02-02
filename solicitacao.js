@@ -276,19 +276,16 @@ function ativaAvancar() {
         if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
         
-        if (event.target.id == 'addUnidade') { event.preventDefault(); console.log('addUnidade'); };
-        if (event.target.id == 'removeUnidade') { event.preventDefault(); console.log('removeUnidade'); };
+        if (event.target.id == 'addUnidade') { console.log('addUnidade'); };
+        if (event.target.id == 'removeUnidade') { console.log('removeUnidade'); };
     });
  //}
- 
+
  
 
 function changeSlide() {
     for (let i = 0; i < osSlides.length; i++) {
         if (!osSlides[i].hasAttribute("aria-hidden")) {
-        //} else { //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SLIDE ATUAL AQUI
-            //        osSlides[i].style.backgroundColor = 'red'; 
-            
             function getInputs() {
                 inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
              };
