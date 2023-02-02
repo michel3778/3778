@@ -387,7 +387,7 @@
   let nextSlide				= oSlider.querySelector('#next-slide');
   let btnComecar			= oSlider.querySelector('#comecar');
   let btsAvancar			= oSlider.querySelectorAll('.bt-avancar');
-  var inputsDoSLide;
+  var inputsDoSLide; 
   
   
   function ativaAvancar(){
