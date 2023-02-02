@@ -317,9 +317,10 @@ function changeSlide() {
         }
     }
     ativaAvancar();
-    clickListener();
+    //clickListener();
 };
 
+clickListener();
 
 function resizear() {
     oSlider.style.height = 'auto';
