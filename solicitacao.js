@@ -70,7 +70,7 @@ let outroDepartamento = formElement.querySelector('[name="outro_departamento"]')
 let selectCargoDepartamento = formElement.querySelector('[name="CARGO_DEPARTAMENTO"]');
 let selectFuncionarios = formElement.querySelector('[name="MMERGE31"]');
 let btnSubmit = formElement.querySelector('input[type=submit]');
-let inputMail = formElement.querySelector('input[type=email]');
+//let inputMail = formElement.querySelector('input[type=email]');
 //let labelMail = inputMail.parentElement.querySelector('label');
 let textError = formElement.querySelectorAll('.msg-error');
 let tagElement = formElement.querySelector('#tags');
