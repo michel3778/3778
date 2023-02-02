@@ -269,7 +269,16 @@ function ativaAvancar() {
     }, 50) 
 };
 
- 
+ function clickListener() {
+    document.addEventListener('click', function handleClick(event) {
+        if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
+        if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
+        if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
+        
+        if (event.target.id == 'addUnidade') { alert('addUnidade'); };
+        if (event.target.id == 'removeUnidade') { alert('removeUnidade'); };
+    });
+ }
  
 
 function changeSlide() {
@@ -279,7 +288,7 @@ function changeSlide() {
         } else { //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SLIDE ATUAL AQUI
             //        osSlides[i].style.backgroundColor = 'red'; 
             
-            function getInputs(params) {
+            function getInputs() {
                 inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
              };
 
@@ -308,15 +317,7 @@ function changeSlide() {
         }
     }
     ativaAvancar();
-
-    document.addEventListener('click', function handleClick(event) {
-        if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
-        if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
-        if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
-        
-        if (event.target.id == 'addUnidade') { alert('addUnidade'); };
-        if (event.target.id == 'removeUnidade') { alert('removeUnidade'); };
-    });
+    clickListener();
 };
 
 
