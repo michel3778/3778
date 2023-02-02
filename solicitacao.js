@@ -422,7 +422,7 @@ function ativaAvancar() {
 };
 
  
-
+ 
 
 function changeSlide() {
     for (let i = 0; i < osSlides.length; i++) {
