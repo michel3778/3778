@@ -421,7 +421,7 @@ function ativaAvancar() {
     }, 50) 
 };
 
-
+ 
 
 
 function changeSlide() {
