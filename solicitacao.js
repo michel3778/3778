@@ -271,6 +271,7 @@ function ativaAvancar() {
 
  //function clickListener() {
     oSlider.addEventListener('click', function handleClick(event) {
+        console.log('event.target: ' + event.target);
         if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
