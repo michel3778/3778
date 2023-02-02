@@ -275,8 +275,8 @@ function ativaAvancar() {
         if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
         
-        if (event.target.id == 'addUnidade') { alert('addUnidade'); };
-        if (event.target.id == 'removeUnidade') { alert('removeUnidade'); };
+        if (event.target.id == 'addUnidade') { event.preventDefault(); console.log('addUnidade'); };
+        if (event.target.id == 'removeUnidade') { event.preventDefault(); console.log('removeUnidade'); };
     });
  //}
  
