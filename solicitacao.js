@@ -71,7 +71,7 @@ let selectCargoDepartamento = formElement.querySelector('[name="CARGO_DEPARTAMEN
 let selectFuncionarios = formElement.querySelector('[name="MMERGE31"]');
 let btnSubmit = formElement.querySelector('input[type=submit]');
 let inputMail = formElement.querySelector('input[type=email]');
-let labelMail = inputMail.parentElement.querySelector('label');
+//let labelMail = inputMail.parentElement.querySelector('label');
 let textError = formElement.querySelectorAll('.msg-error');
 let tagElement = formElement.querySelector('#tags');
 let prioridadeElement = formElement.querySelector('#prioridade');
@@ -452,7 +452,6 @@ function changeSlide() {
         }
     }
     ativaAvancar();
-
 };
 
 
@@ -472,7 +471,5 @@ function resizear() {
     oSlider.style.height = targetHeight + 'px';
 };
 
-window.addEventListener('resize', function (event) {
-    resizear();
-}, true);
+window.addEventListener('resize', function (event) { resizear(); }, true);
 resizear();
