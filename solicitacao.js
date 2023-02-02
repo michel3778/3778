@@ -283,9 +283,8 @@ function ativaAvancar() {
 
 function changeSlide() {
     for (let i = 0; i < osSlides.length; i++) {
-        if (osSlides[i].hasAttribute("aria-hidden")) {
-            //      	osSlides[i].style.backgroundColor = 'white';
-        } else { //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SLIDE ATUAL AQUI
+        if (!osSlides[i].hasAttribute("aria-hidden")) {
+        //} else { //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SLIDE ATUAL AQUI
             //        osSlides[i].style.backgroundColor = 'red'; 
             
             function getInputs() {
