@@ -1,4 +1,5 @@
-	var origemParam = '';
+	
+    var origemParam = '';
 	var iscaParam = '';
 	if (window.location.search) {
 		const queryString = window.location.search;
