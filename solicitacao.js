@@ -317,7 +317,7 @@ function changeSlide() {
         }
     }
     ativaAvancar();
-    //clickListener();
+    clickListener();
 };
 
 clickListener();
