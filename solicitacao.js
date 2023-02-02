@@ -315,8 +315,8 @@ btnComecar.onclick = function (event) { event.preventDefault(); nextSlide.click(
 document.addEventListener('click', function handleClick(event) {
     if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
     if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
-    if (event.event.target.id.contains('addUnidade')) { event.preventDefault(); alert('addUnidade'); };
-    if (event.event.target.id.contains('removeUnidade')) { event.preventDefault(); alert('removeUnidade'); };
+    if (event.target.id.contains('addUnidade')) { event.preventDefault(); alert('addUnidade'); };
+    if (event.target.id.contains('removeUnidade')) { event.preventDefault(); alert('removeUnidade'); };
 });
 
 
