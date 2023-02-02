@@ -430,7 +430,7 @@ function changeSlide() {
             //      	osSlides[i].style.backgroundColor = 'white';
         } else { //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SLIDE ATUAL AQUI
             //        osSlides[i].style.backgroundColor = 'red'; 
-            inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select');
+            inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
 
             for (let i = 0; i < inputsDoSLide.length; i++) {
                 //        	console.log(inputsDoSLide[i].value);
