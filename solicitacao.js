@@ -76,7 +76,7 @@ let btnSubmit = formElement.querySelector('input[type=submit]');
 let textError = formElement.querySelectorAll('.msg-error');
 //let tagElement = formElement.querySelector('#tags');
 let prioridadeElement = formElement.querySelector('#prioridade');
-let qualificacaoElement = formElement.querySelector('#Qualificacao');
+//let qualificacaoElement = formElement.querySelector('#Qualificacao');
 let projetoElement = formElement.querySelector('#Projeto');
 //let iscaElement = formElement.querySelector('#Isca');
 let funilElement = formElement.querySelector('#Funil');
@@ -272,7 +272,7 @@ function ativaAvancar() {
  //function clickListener() {
     oSlider.addEventListener('click', function handleClick(event) {
         console.log('event.target: ' + event.target);
-        console.log('event.target.id: ' + event.target.id);
+        console.log('event.target.id: ' + event.target.parentElement.id);
         if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
