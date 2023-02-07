@@ -120,6 +120,7 @@ refreshTags();
 //TELEFONE >>>>>>>>>>
 inputCnpj.oninput = function() {
     this.value = cnpjMask(this.value);
+    console.log(this.value);
     //var convertPhoneValue 	= this.value.replace(/\D/g,'');
     //inputTelefoneSend.value 		= '+55'+convertPhoneValue;
     //refreshTags();
