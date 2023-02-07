@@ -277,8 +277,9 @@ function ativaAvancar() {
 
  //function clickListener() {
     oSlider.addEventListener('click', function handleClick(event) {
-        console.log('event.target: ' + event.target);
-        console.log('event.target.id: ' + event.target.id);
+        //console.log('event.target: ' + event.target);
+        //console.log('event.target.id: ' + event.target.id);
+
         let idNumber = 1;
         if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
@@ -287,7 +288,7 @@ function ativaAvancar() {
         if (event.target.id == 'addUnidade') {
             console.log('addUnidade');
 
-            const node = event.target.closest('#unidade');
+            const node = event.target.closest('.row');
             const clone = node.cloneNode(true);
             clone.id = unidade + idNumber;
             
