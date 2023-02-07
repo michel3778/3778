@@ -84,6 +84,8 @@ let inputTelefoneFake = formElement.querySelector('[name="MMERGE6FAKE"]');
 let inputTelefoneSend = formElement.querySelector('[name="MMERGE6"]');
 let categoriaElement = formElement.querySelector('[name="sendCategoria"]');
 let origemElement = formElement.querySelector('#Origem');
+let inputCnpj = formElement.querySelector('#cnpj');
+
 
 origemElement.value = tags.tagOrigem;
 //projetoElement.value = projetoValue;
@@ -115,7 +117,18 @@ refreshTags();
 // SEGUNDO SCRIPT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
+//TELEFONE >>>>>>>>>>
+inputCnpj.oninput = function() {
+    this.value = cnpjMask(this.value);
+    //var convertPhoneValue 	= this.value.replace(/\D/g,'');
+    //inputTelefoneSend.value 		= '+55'+convertPhoneValue;
+    //refreshTags();
+}
 
+function cnpjMask (phone) {
+    return phone.replace(/\D/g, '')
+        .replace(/^(\d{2})(\d{3})?(\d{3})?(\d{4})?(\d{2})?/, "$1 $2 $3/$4-$5"));
+};
 
 
 
@@ -272,7 +285,7 @@ function ativaAvancar() {
  //function clickListener() {
     oSlider.addEventListener('click', function handleClick(event) {
         console.log('event.target: ' + event.target);
-        console.log('event.target.id: ' + event.target.parentElement.id);
+        console.log('event.target.id: ' + event.target.id);
         if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
