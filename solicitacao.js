@@ -290,7 +290,6 @@ function ativaAvancar() {
             const node = event.target.closest('#unidade');
             const clone = node.cloneNode(true);
             clone.id == unidade + idNumber;
-            document.querySelector("#unidades").appendChild(clone);
             
             clone.querySelector('#estado').id == 'estado' + idNumber;
             clone.querySelector('#estado').value == '';
@@ -298,6 +297,8 @@ function ativaAvancar() {
             clone.querySelector('#cidade').value == '';
             clone.querySelector('#qtd-vidas').id == 'qtd-vidas' + idNumber;
             clone.querySelector('#qtd-vidas').value == '';
+
+            document.querySelector("#unidades").appendChild(clone);
             
         };
         if (event.target.id == 'removeUnidade') { console.log('removeUnidade'); };
