@@ -292,15 +292,21 @@ oSlider.addEventListener('click', function handleClick(event) {
 
         const node = event.target.closest('.row');
         const clone = node.cloneNode(true);
-        clone.id = unidade + idNumber;
+        clone.id = 'unidade-' + idNumber;
         
-        clone.querySelector('.input-estado').id = 'input-estado-' + idNumber;
-        clone.querySelector('.input-estado').name = 'input-estado-' + idNumber;
-        clone.querySelector('.input-estado').setAttribute('data-name', 'input-estado-' + idNumber);
+        clone.querySelector('.input-estado').id = 'estado-' + idNumber;
+        clone.querySelector('.input-estado').name = 'estado-' + idNumber;
+        clone.querySelector('.input-estado').setAttribute('data-name', 'estado-' + idNumber);
         clone.querySelector('.input-estado').value = '';
-        clone.querySelector('.input-cidade').id = 'input-cidade' + idNumber;
+
+        clone.querySelector('.input-cidade').id = 'cidade-' + idNumber;
+        clone.querySelector('.input-cidade').name = 'cidade-' + idNumber;
+        clone.querySelector('.input-cidade').setAttribute('data-name', 'cidade-' + idNumber);
         clone.querySelector('.input-cidade').value = '';
-        clone.querySelector('.input-vidas').id = 'input-vidas' + idNumber;
+        
+        clone.querySelector('.input-vidas').id = 'vidas-' + idNumber;
+        clone.querySelector('.input-vidas').name = 'vidas-' + idNumber;
+        clone.querySelector('.input-vidas').setAttribute('data-name','vidas-' + idNumber);
         clone.querySelector('.input-vidas').value = '';
 
         document.querySelector("#unidades").appendChild(clone);
@@ -312,7 +318,13 @@ oSlider.addEventListener('click', function handleClick(event) {
         resizear();
     };
 
-    if (event.target.id == 'removeUnidade') { console.log('removeUnidade'); };
+    if (event.target.id == 'removeUnidade') {
+        console.log('removeUnidade');
+
+        const node = event.target.closest('.row');
+        const clone = node.cloneNode(true);
+        clone.id = unidade + idNumber;
+    };
 
 });
  
@@ -347,40 +359,15 @@ oSlider.addEventListener('click', function handleClick(event) {
 // };
 
 function changeSlide() {
-
     for (let i = 0; i < osSlides.length; i++) {
         if (!osSlides[i].hasAttribute("aria-hidden")) {
             slideAtual = osSlides[i];
             getInputs();
-            // inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
-
-            // for (let i = 0; i < inputsDoSLide.length; i++) {
-            //     console.log('inputsDoSLide : ' + inputsDoSLide);
-            //     console.log('inputsDoSLide LENGTH: ' + inputsDoSLide.length);
-            //     console.log('inputsDoSLide TYPE: ' + inputsDoSLide[i].type);
-            //     console.log('inputsDoSLide VALUE: ' + inputsDoSLide[i].value);
-
-            //     inputsDoSLide[i].oninput = function () {
-            //         //console.log('changeou um input: ' + inputsDoSLide[i].type + ' - ' + inputsDoSLide[i].value);
-            //         //if (inputsDoSLide[i].id == 'MMERGE6FAKE') { funcInputTelefoneFake(this); };
-            //         //if (inputsDoSLide[i].id == 'MMERGE31') { funcSelectFuncionarios(this); };
-            //         //if (inputsDoSLide[i].id == 'EMAIL') { funcInputMail(this); };
-            //         //if (inputsDoSLide[i].id == 'MMERGE15FAKE') { funcSelectSegmentoFake(this); };
-            //         //if (inputsDoSLide[i].id == 'outro_segmento') { funcOutroSegmento(this); };
-            //         //if (inputsDoSLide[i].id == 'DEPARTAMENTOFAKE') { funcSelectDepartamentoFake(this); };
-            //         //if (inputsDoSLide[i].id == 'outro_departamento') { funcOutroDepartamento(this); };
-
-            //         ativaAvancar();
-            //         resizear();
-            //     };
-            // };
-        }
-    }
+        };
+    };
     ativaAvancar();
-    //clickListener();
 };
 
-//clickListener();
 
 function resizear() {
     oSlider.style.height = 'auto';
