@@ -319,10 +319,7 @@ oSlider.addEventListener('click', function handleClick(event) {
 
     if (event.target.id == 'removeUnidade') {
         console.log('removeUnidade');
-
-        const node = event.target.closest('.row');
-        const clone = node.cloneNode(true);
-        clone.id = unidade + idNumber;
+        const node = event.target.closest('.row').remove();
     };
 
 });
