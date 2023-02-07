@@ -289,6 +289,7 @@ oSlider.addEventListener('click', function handleClick(event) {
     
     if (event.target.id == 'addUnidade') {
         console.log('addUnidade');
+        idNumber++;
 
         const node = event.target.closest('.row');
         const clone = node.cloneNode(true);
@@ -310,8 +311,6 @@ oSlider.addEventListener('click', function handleClick(event) {
         clone.querySelector('.input-vidas').value = '';
 
         document.querySelector("#unidades").appendChild(clone);
-
-        idNumber++;
 
         getInputs();
         ativaAvancar();
