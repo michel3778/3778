@@ -119,15 +119,9 @@ refreshTags();
 
 //TELEFONE >>>>>>>>>>
 inputCnpj.oninput = function() {
-    //this.value = cnpjMask(this.value);
     var x = this.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
     this.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
 }
-
-function cnpjMask (phone) {
-    //var x = phone.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
-    //return !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
-};
 
 
 
@@ -289,8 +283,17 @@ function ativaAvancar() {
         if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
         
-        if (event.target.id == 'addUnidade') { console.log('addUnidade'); };
+        if (event.target.id == 'addUnidade') {
+            console.log('addUnidade');
+
+            const node = event.target.closest('#unidade');
+            //document.getElementById("myList2").lastChild;
+            const clone = node.cloneNode(true);
+            document.getElementById("unidades").appendChild(clone);
+        };
         if (event.target.id == 'removeUnidade') { console.log('removeUnidade'); };
+
+
     });
  //}
 
