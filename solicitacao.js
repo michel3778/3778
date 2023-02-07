@@ -243,6 +243,7 @@ let nextSlide = oSlider.querySelector('#next-slide');
 //let btnComecar = oSlider.querySelector('#comecar');
 let btsAvancar = oSlider.querySelectorAll('.bt-avancar');
 var inputsDoSLide;
+var slideAtual;
 
 
 function ativaAvancar() {
@@ -253,9 +254,9 @@ function ativaAvancar() {
                 avancaBrasil = false;
             };
 
-            if (inputsDoSLide[i].type == 'radio' && !document.getElementsByClassName('w--redirected-checked').length) {
+            if (inputsDoSLide[i].type == 'radio' && !slideAtual.getElementsByClassName('w--redirected-checked').length) {
                 avancaBrasil = false;
-                console.log('length: ' + document.getElementsByClassName('w--redirected-checked').length);
+                console.log('length: ' + slideAtual.getElementsByClassName('w--redirected-checked').length);
             };
         };
 
@@ -275,43 +276,45 @@ function ativaAvancar() {
     }, 50) 
 };
 
- //function clickListener() {
-    oSlider.addEventListener('click', function handleClick(event) {
-        //console.log('event.target: ' + event.target);
-        //console.log('event.target.id: ' + event.target.id);
 
-        let idNumber = 1;
-        if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
-        if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
-        if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
+oSlider.addEventListener('click', function handleClick(event) {
+    //console.log('event.target: ' + event.target);
+    //console.log('event.target.id: ' + event.target.id);
+
+    let idNumber = 1;
+    if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
+    if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
+    if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
+    
+    if (event.target.id == 'addUnidade') {
+        console.log('addUnidade');
+
+        const node = event.target.closest('.row');
+        const clone = node.cloneNode(true);
+        clone.id = unidade + idNumber;
         
-        if (event.target.id == 'addUnidade') {
-            console.log('addUnidade');
+        clone.querySelector('.input-estado').id = 'input-estado-' + idNumber;
+        clone.querySelector('.input-estado').name = 'input-estado-' + idNumber;
+        clone.querySelector('.input-estado').setAttribute('data-name', 'input-estado-' + idNumber);
+        clone.querySelector('.input-estado').value = '';
+        clone.querySelector('.input-cidade').id = 'input-cidade' + idNumber;
+        clone.querySelector('.input-cidade').value = '';
+        clone.querySelector('.input-vidas').id = 'input-vidas' + idNumber;
+        clone.querySelector('.input-vidas').value = '';
 
-            const node = event.target.closest('.row');
-            const clone = node.cloneNode(true);
-            clone.id = unidade + idNumber;
-            
-            clone.querySelector('.input-estado').id = 'input-estado-' + idNumber;
-            clone.querySelector('.input-estado').name = 'input-estado-' + idNumber;
-            clone.querySelector('.input-estado').setAttribute('data-name', 'input-estado-' + idNumber);
-            clone.querySelector('.input-estado').value = '';
-            clone.querySelector('.input-cidade').id = 'input-cidade' + idNumber;
-            clone.querySelector('.input-cidade').value = '';
-            clone.querySelector('.input-vidas').id = 'input-vidas' + idNumber;
-            clone.querySelector('.input-vidas').value = '';
+        document.querySelector("#unidades").appendChild(clone);
 
-            document.querySelector("#unidades").appendChild(clone);
+        idNumber++;
 
-            getInputs();
-            ativaAvancar();
-            resizear();
-        };
-        
-        if (event.target.id == 'removeUnidade') { console.log('removeUnidade'); };
+        getInputs();
+        ativaAvancar();
+        resizear();
+    };
 
-    });
- //}
+    if (event.target.id == 'removeUnidade') { console.log('removeUnidade'); };
+
+});
+ 
 
  //function getInputs() { inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea'); };
  function getInputs() {
@@ -323,9 +326,10 @@ function ativaAvancar() {
 };
 
 function changeSlide() {
+
     for (let i = 0; i < osSlides.length; i++) {
         if (!osSlides[i].hasAttribute("aria-hidden")) {
-            
+            slideAtual = osSlides[i];
             inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
 
             for (let i = 0; i < inputsDoSLide.length; i++) {
