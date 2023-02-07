@@ -306,7 +306,7 @@ function ativaAvancar() {
         };
         if (event.target.id == 'removeUnidade') { console.log('removeUnidade'); };
         
-        getInputs();
+        //getInputs();
         ativaAvancar();
         resizear();
 
