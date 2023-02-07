@@ -279,6 +279,7 @@ function ativaAvancar() {
     oSlider.addEventListener('click', function handleClick(event) {
         console.log('event.target: ' + event.target);
         console.log('event.target.id: ' + event.target.id);
+        let idNumber = 1;
         if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
         if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
@@ -286,13 +287,17 @@ function ativaAvancar() {
         if (event.target.id == 'addUnidade') {
             console.log('addUnidade');
 
-            const node = event.target.closest('#unidade');
+            const node = event.target.closest('#unidade1');
             //document.getElementById("myList2").lastChild;
             const clone = node.cloneNode(true);
+            clone.id == unidade + idNumber;
+            clone.getElementById('estado').id == 'estado' + idNumber;
+            clone.getElementById('cidade').id == 'cidade' + idNumber;
+            clone.getElementById('qtd-vidas').id == 'qtd-vidas' + idNumber;
             document.getElementById("unidades").appendChild(clone);
         };
         if (event.target.id == 'removeUnidade') { console.log('removeUnidade'); };
-
+        resizear();
 
     });
  //}
