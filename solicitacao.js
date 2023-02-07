@@ -320,38 +320,59 @@ oSlider.addEventListener('click', function handleClick(event) {
  function getInputs() {
     for (let i = 0; i < osSlides.length; i++) {
         if (!osSlides[i].hasAttribute("aria-hidden")) {            
+            
             inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
+            
+            for (let i = 0; i < inputsDoSLide.length; i++) {
+                inputsDoSLide[i].oninput = function () {
+                    ativaAvancar();
+                    resizear();
+                };
+            };
         };
+        
     };
 };
+
+// function refreshInputs() {
+//     ativaAvancar();
+//     resizear();
+// };
+
+// oSlider.querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
+
+// inputsDoSLide[i].oninput = function () {
+
+// };
 
 function changeSlide() {
 
     for (let i = 0; i < osSlides.length; i++) {
         if (!osSlides[i].hasAttribute("aria-hidden")) {
             slideAtual = osSlides[i];
-            inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
+            getInputs();
+            // inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
 
-            for (let i = 0; i < inputsDoSLide.length; i++) {
-                console.log('inputsDoSLide : ' + inputsDoSLide);
-                console.log('inputsDoSLide LENGTH: ' + inputsDoSLide.length);
-                console.log('inputsDoSLide TYPE: ' + inputsDoSLide[i].type);
-                console.log('inputsDoSLide VALUE: ' + inputsDoSLide[i].value);
+            // for (let i = 0; i < inputsDoSLide.length; i++) {
+            //     console.log('inputsDoSLide : ' + inputsDoSLide);
+            //     console.log('inputsDoSLide LENGTH: ' + inputsDoSLide.length);
+            //     console.log('inputsDoSLide TYPE: ' + inputsDoSLide[i].type);
+            //     console.log('inputsDoSLide VALUE: ' + inputsDoSLide[i].value);
 
-                inputsDoSLide[i].oninput = function () {
-                    //console.log('changeou um input: ' + inputsDoSLide[i].type + ' - ' + inputsDoSLide[i].value);
-                    //if (inputsDoSLide[i].id == 'MMERGE6FAKE') { funcInputTelefoneFake(this); };
-                    //if (inputsDoSLide[i].id == 'MMERGE31') { funcSelectFuncionarios(this); };
-                    if (inputsDoSLide[i].id == 'EMAIL') { funcInputMail(this); };
-                    //if (inputsDoSLide[i].id == 'MMERGE15FAKE') { funcSelectSegmentoFake(this); };
-                    //if (inputsDoSLide[i].id == 'outro_segmento') { funcOutroSegmento(this); };
-                    //if (inputsDoSLide[i].id == 'DEPARTAMENTOFAKE') { funcSelectDepartamentoFake(this); };
-                    //if (inputsDoSLide[i].id == 'outro_departamento') { funcOutroDepartamento(this); };
+            //     inputsDoSLide[i].oninput = function () {
+            //         //console.log('changeou um input: ' + inputsDoSLide[i].type + ' - ' + inputsDoSLide[i].value);
+            //         //if (inputsDoSLide[i].id == 'MMERGE6FAKE') { funcInputTelefoneFake(this); };
+            //         //if (inputsDoSLide[i].id == 'MMERGE31') { funcSelectFuncionarios(this); };
+            //         //if (inputsDoSLide[i].id == 'EMAIL') { funcInputMail(this); };
+            //         //if (inputsDoSLide[i].id == 'MMERGE15FAKE') { funcSelectSegmentoFake(this); };
+            //         //if (inputsDoSLide[i].id == 'outro_segmento') { funcOutroSegmento(this); };
+            //         //if (inputsDoSLide[i].id == 'DEPARTAMENTOFAKE') { funcSelectDepartamentoFake(this); };
+            //         //if (inputsDoSLide[i].id == 'outro_departamento') { funcOutroDepartamento(this); };
 
-                    ativaAvancar();
-                    resizear();
-                };
-            };
+            //         ativaAvancar();
+            //         resizear();
+            //     };
+            // };
         }
     }
     ativaAvancar();
