@@ -302,31 +302,31 @@ function ativaAvancar() {
             clone.querySelector('.input-vidas').value = '';
 
             document.querySelector("#unidades").appendChild(clone);
-            
+
+            getInputs();
+            ativaAvancar();
+            resizear();
         };
-        if (event.target.id == 'removeUnidade') { console.log('removeUnidade'); };
         
-        //getInputs();
-        ativaAvancar();
-        resizear();
+        if (event.target.id == 'removeUnidade') { console.log('removeUnidade'); };
 
     });
  //}
 
  //function getInputs() { inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea'); };
- function getInputss() { 
-    document.querySelector("[aria-hidden=value]");
-    // document.querySelector("[myAttribute=value]");
-    inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea'); 
+ function getInputs() {
+    for (let i = 0; i < osSlides.length; i++) {
+        if (!osSlides[i].hasAttribute("aria-hidden")) {            
+            inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
+        };
+    };
 };
 
 function changeSlide() {
     for (let i = 0; i < osSlides.length; i++) {
         if (!osSlides[i].hasAttribute("aria-hidden")) {
             
-            function getInputs() { inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea'); };
-
-            getInputs();
+            inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
 
             for (let i = 0; i < inputsDoSLide.length; i++) {
                 console.log('inputsDoSLide : ' + inputsDoSLide);
