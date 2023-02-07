@@ -320,6 +320,10 @@ oSlider.addEventListener('click', function handleClick(event) {
     if (event.target.id == 'removeUnidade') {
         console.log('removeUnidade');
         const node = event.target.closest('.row').remove();
+
+        getInputs();
+        ativaAvancar();
+        resizear();
     };
 
 });
