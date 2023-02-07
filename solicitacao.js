@@ -125,19 +125,9 @@ inputCnpj.oninput = function() {
     //refreshTags();
 }
 
-function cnpjMask (v) {
-    v=v.replace(/^(\d{2})(\d)/,"$1.$2");
- 
-    //Coloca ponto entre o quinto e o sexto dígitos
-    v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3");
-
-    //Coloca uma barra entre o oitavo e o nono dígitos
-    v=v.replace(/\.(\d{3})(\d)/,".$1/$2");
-
-    //Coloca um hífen depois do bloco de quatro dígitos
-    v=v.replace(/(\d{4})(\d)/,"$1-$2");
-
-    return v;
+function cnpjMask (phone) {
+    return phone.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
+      e.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
 };
 
 
