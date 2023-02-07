@@ -288,11 +288,14 @@ function ativaAvancar() {
             console.log('addUnidade');
 
             const node = event.target.closest('#unidade1');
-            const clone = node.cloneNode();
+            const clone = node.cloneNode(true);
             clone.id == unidade + idNumber;
             clone.getElementById('estado').id == 'estado' + idNumber;
+            clone.getElementById('estado').value == '';
             clone.getElementById('cidade').id == 'cidade' + idNumber;
+            clone.getElementById('cidade').value == '';
             clone.getElementById('qtd-vidas').id == 'qtd-vidas' + idNumber;
+            clone.getElementById('qtd-vidas').value == '';
             document.getElementById("unidades").appendChild(clone);
         };
         if (event.target.id == 'removeUnidade') { console.log('removeUnidade'); };
