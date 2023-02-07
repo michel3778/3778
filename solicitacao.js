@@ -292,12 +292,12 @@ function ativaAvancar() {
             const clone = node.cloneNode(true);
             clone.id = unidade + idNumber;
             
-            clone.querySelector('#estado').id = 'estado' + idNumber;
-            //clone.querySelector('#estado').value = '';
-            clone.querySelector('#cidade').id = 'cidade' + idNumber;
-            //clone.querySelector('#cidade').value = '';
-            clone.querySelector('#qtd-vidas').id = 'qtd-vidas' + idNumber;
-            //clone.querySelector('#qtd-vidas').value = '';
+            clone.querySelector('.input-estado').id = 'input-estado' + idNumber;
+            clone.querySelector('.input-estado').value = '';
+            clone.querySelector('.input-cidade').id = 'input-cidade' + idNumber;
+            clone.querySelector('.input-cidade').value = '';
+            clone.querySelector('.input-vidas').id = 'input-vidas' + idNumber;
+            clone.querySelector('.input-vidas').value = '';
 
             document.querySelector("#unidades").appendChild(clone);
             
