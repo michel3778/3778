@@ -242,8 +242,9 @@ let prevSlide = oSlider.querySelector('#prev-slide');
 let nextSlide = oSlider.querySelector('#next-slide');
 //let btnComecar = oSlider.querySelector('#comecar');
 let btsAvancar = oSlider.querySelectorAll('.bt-avancar');
-var inputsDoSLide;
-var slideAtual;
+let inputsDoSLide;
+let slideAtual;
+let idNumber = 1;
 
 
 function ativaAvancar() {
@@ -281,7 +282,7 @@ oSlider.addEventListener('click', function handleClick(event) {
     //console.log('event.target: ' + event.target);
     //console.log('event.target.id: ' + event.target.id);
 
-    let idNumber = 1;
+    
     if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
     if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
     if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
