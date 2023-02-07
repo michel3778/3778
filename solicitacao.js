@@ -314,7 +314,7 @@ function ativaAvancar() {
  //}
 
  //function getInputs() { inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea'); };
- function getInputs() { 
+ function getInputss() { 
     document.querySelector("[aria-hidden=value]");
     // document.querySelector("[myAttribute=value]");
     inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea'); 
@@ -324,7 +324,7 @@ function changeSlide() {
     for (let i = 0; i < osSlides.length; i++) {
         if (!osSlides[i].hasAttribute("aria-hidden")) {
             
-            // function getInputs() { inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea'); };
+            function getInputs() { inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea'); };
 
             getInputs();
 
