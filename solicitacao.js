@@ -288,8 +288,7 @@ function ativaAvancar() {
             console.log('addUnidade');
 
             const node = event.target.closest('#unidade1');
-            //document.getElementById("myList2").lastChild;
-            const clone = node.cloneNode(true);
+            const clone = node.cloneNode();
             clone.id == unidade + idNumber;
             clone.getElementById('estado').id == 'estado' + idNumber;
             clone.getElementById('cidade').id == 'cidade' + idNumber;
