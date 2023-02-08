@@ -289,7 +289,8 @@ oSlider.addEventListener('click', function handleClick(event) {
     if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
     if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
     
-    if (event.target.id == 'addUnidade') {
+    //if (event.target.id == 'addUnidade') {
+    if (event.target.classList.contains('add-unidade')) {
         console.log('addUnidade');
         idNumber++;
 
@@ -319,7 +320,8 @@ oSlider.addEventListener('click', function handleClick(event) {
         resizear();
     };
 
-    if (event.target.id == 'removeUnidade') {
+    //if (event.target.id == 'removeUnidade') {
+    if (event.target.classList.contains('remove-unidade')) {
         console.log('removeUnidade');
         const node = event.target.closest('.row').remove();
 
