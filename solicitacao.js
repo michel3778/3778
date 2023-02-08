@@ -118,7 +118,8 @@ refreshTags();
 
 
 //CNPJ >>>>>>>>>>
-inputCnpj.oninput = function() {
+//inputCnpj.oninput = function() {
+inputCnpj.addEventListener("click", () => {
     console.log('CNPJ');
     var x = this.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
     this.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
@@ -352,16 +353,6 @@ oSlider.addEventListener('click', function handleClick(event) {
     };
 };
 
-// function refreshInputs() {
-//     ativaAvancar();
-//     resizear();
-// };
-
-// oSlider.querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea');
-
-// inputsDoSLide[i].oninput = function () {
-
-// };
 
 function changeSlide() {
     for (let i = 0; i < osSlides.length; i++) {
