@@ -10,7 +10,7 @@ if (window.location.search) {
 
 // >>> SETUP >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-let formElement = document.querySelector('#wf-form-lft');
+let formElement = document.querySelector('#wf-form-pedido');
 
 //QUALIFICAÇÃO por número de funcionários
 var qtdFuncionarios = 0;
