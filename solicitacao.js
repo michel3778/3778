@@ -246,7 +246,7 @@ let inputsDoSLide;
 let slideAtual;
 let idNumber = 1;
 
-oSlider.querySelector('#unidade').querySelector('#removeUnidade').remove();
+oSlider.querySelector('#unidade').querySelector('#removeUnidade').parentNode.remove();
 
 
 function ativaAvancar() {
