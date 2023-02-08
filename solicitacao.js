@@ -120,7 +120,7 @@ refreshTags();
 //CNPJ >>>>>>>>>>
 //inputCnpj.oninput = function() {
 //document.inputCnpj.addEventListener("click", (e) => {
-document.querySelector('#cnpj').addEventListener("click", (e) => {
+document.querySelector('#cnpj').addEventListener("click", function (e) {
     console.log('CNPJ');
     console.log('this: ' + this);
     console.log('this.value: ' + this.value);
