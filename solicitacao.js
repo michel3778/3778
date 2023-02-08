@@ -118,13 +118,7 @@ refreshTags();
 
 
 //CNPJ >>>>>>>>>>
-//inputCnpj.oninput = function() {
-//inputCnpj.addEventListener("input", (e) => {
 document.querySelector('#cnpj').addEventListener("input", function (e) {
-    console.log('CNPJ');
-    console.log('this: ' + this);
-    console.log('this.value: ' + this.value);
-    console.log('e.value: ' + e.value);
     var x = this.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
     this.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
 });
