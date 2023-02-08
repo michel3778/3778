@@ -119,8 +119,8 @@ refreshTags();
 
 //CNPJ >>>>>>>>>>
 //inputCnpj.oninput = function() {
-inputCnpj.addEventListener("input", (e) => {
-//document.querySelector('#cnpj').addEventListener("input", function (e) {
+//inputCnpj.addEventListener("input", (e) => {
+document.querySelector('#cnpj').addEventListener("input", function (e) {
     console.log('CNPJ');
     console.log('this: ' + this);
     console.log('this.value: ' + this.value);
