@@ -288,8 +288,8 @@ function ativaAvancar() {
 
 
 oSlider.addEventListener('click', function handleClick(event) {
-    //console.log('event.target: ' + event.target);
-    //console.log('event.target.id: ' + event.target.id);
+    console.log('event.target: ' + event.target);
+    console.log('event.target.id: ' + event.target.id);
 
     
     if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
