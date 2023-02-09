@@ -117,11 +117,7 @@ refreshTags();
 // SEGUNDO SCRIPT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-//CNPJ >>>>>>>>>>
-document.querySelector('#cnpj').addEventListener("input", function (e) {
-    var x = this.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
-    this.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
-});
+
 
 
 
@@ -246,7 +242,13 @@ let inputsDoSLide;
 let slideAtual;
 let idNumber = 1;
 
-//oSlider.querySelector('#unidade').querySelector('#removeUnidade').parentNode.remove();
+
+
+//CNPJ >>>>>>>>>>
+document.querySelector('#cnpj').addEventListener("input", function (e) {
+    var x = this.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
+    this.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
+});
 
 
 function ativaAvancar() {
@@ -338,8 +340,7 @@ oSlider.addEventListener('click', function handleClick(event) {
 });
  
 
- //function getInputs() { inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], select, textarea'); };
- function getInputs() {
+function getInputs() {
     for (let i = 0; i < osSlides.length; i++) {
         if (!osSlides[i].hasAttribute("aria-hidden")) {            
             
