@@ -348,7 +348,8 @@ oSlider.addEventListener('click', function handleClick(event) {
             for (let i = 0; i < inputsDoSLide.length; i++) {
                 console.log('inputsDoSLide[i].type: ' + inputsDoSLide[i].type);
                 if (inputsDoSLide[i].type == 'checkbox') {
-                    inputsDoSLide[i].click = function () {
+                    inputsDoSLide[i].onclick = function () {
+                        console.log('click click click');
                         ativaAvancar();
                         resizear();
                     }; 
