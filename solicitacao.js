@@ -257,14 +257,14 @@ function ativaAvancar() {
                 avancaBrasil = false;
             };
 
-            if (inputsDoSLide[i].type == 'radio' && !slideAtual.getElementsByClassName('w-radio-input, w--redirected-checked').length) {
+            if (inputsDoSLide[i].type == 'radio' && !slideAtual.querySelectorAll('.w-radio-input, .w--redirected-checked').length) {
                 avancaBrasil = false;
-                console.log('length: ' + slideAtual.getElementsByClassName('w-radio-input, w--redirected-checked').length);
+                console.log('length: ' + slideAtual.querySelectorAll('.w-radio-input, .w--redirected-checked').length);
             };
 
-            if (inputsDoSLide[i].type == 'checkbox' && !slideAtual.getElementsByClassName('w-checkbox-input, w--redirected-checked').length) {
+            if (inputsDoSLide[i].type == 'checkbox' && !slideAtual.querySelectorAll('.w-checkbox-input, .w--redirected-checked').length) {
                 avancaBrasil = false;
-                console.log('length: ' + slideAtual.getElementsByClassName('w-checkbox-input, w--redirected-checked').length);
+                console.log('length: ' + slideAtual.querySelectorAll('.w-checkbox-input, .w--redirected-checked').length);
             };
         };
 
