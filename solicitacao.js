@@ -346,7 +346,7 @@ oSlider.addEventListener('click', function handleClick(event) {
             inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], input[type="checkbox"] select, textarea');
             
             for (let i = 0; i < inputsDoSLide.length; i++) {
-                console.log('inputsDoSLide[i].type: ' + inputsDoSLide[i].type);
+                console.log('inputsDoSLide[i].typex: ' + inputsDoSLide[i].type);
                 if (inputsDoSLide[i].type == 'checkbox') {
                     inputsDoSLide[i].onchange = function () {
                         console.log('click click click');
