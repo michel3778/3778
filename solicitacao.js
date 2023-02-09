@@ -346,10 +346,17 @@ oSlider.addEventListener('click', function handleClick(event) {
             inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], input[type="checkbox"] select, textarea');
             
             for (let i = 0; i < inputsDoSLide.length; i++) {
-                inputsDoSLide[i].oninput = function () {
-                    ativaAvancar();
-                    resizear();
-                };
+                if (inputsDoSLide[i].type == 'checkbox') {
+                    inputsDoSLide[i].change = function () {
+                        ativaAvancar();
+                        resizear();
+                    }; 
+                } else {
+                    inputsDoSLide[i].oninput = function () {
+                        ativaAvancar();
+                        resizear();
+                    };    
+                }
             };
         };
         
