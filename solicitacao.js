@@ -259,14 +259,14 @@ function ativaAvancar() {
                 avancaBrasil = false;
             };
 
-            if (inputsDoSLide[i].type == 'radio' && !slideAtual.querySelectorAll('.w-form-formradioinput--inputType-custom radio-button .w--redirected-checked').length) {
+            if (inputsDoSLide[i].type == 'radio' && !slideAtual.getElementsByClassName('w-form-formradioinput--inputType-custom radio-button w--redirected-checked').length) {
                 avancaBrasil = false;
-                console.log('length: ' + slideAtual.querySelectorAll('.w-form-formradioinput--inputType-custom radio-button .w--redirected-checked').length);
+                console.log('length: ' + slideAtual.getElementsByClassName('w-form-formradioinput--inputType-custom radio-button w--redirected-checked').length);
             };
 
-            if (inputsDoSLide[i].type == 'checkbox' && !slideAtual.querySelectorAll('.w-checkbox-input--inputType-custom checkbox .w--redirected-checked').length) {
+            if (inputsDoSLide[i].type == 'checkbox' && !slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length) {
                 avancaBrasil = false;
-                console.log('length: ' + slideAtual.querySelectorAll('.w-checkbox-input--inputType-custom checkbox .w--redirected-checked').length);
+                console.log('length: ' + slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length);
             };
         };
 
