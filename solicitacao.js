@@ -264,6 +264,11 @@ function ativaAvancar() {
                 console.log('length radio: ' + slideAtual.getElementsByClassName('w-form-formradioinput--inputType-custom radio-button w--redirected-checked').length);
             };
 
+            if (inputsDoSLide[i].type == 'checkbox') {
+                avancaBrasil = false;
+                console.log('length checkbox222222222: ' + slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length);
+            };
+
             if (inputsDoSLide[i].type == 'checkbox' && !slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length) {
                 avancaBrasil = false;
                 console.log('length checkbox: ' + slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length);
