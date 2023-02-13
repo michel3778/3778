@@ -43,8 +43,8 @@ let tags = {
     tagQualificacao: qualificacaoValue.opcao0, //opcao0:'', opcao1:'NAO_QUALIFICADO', opcao2:'QUALIFICADO'
     tagOrigem: origemValue.opcao1, //opcao0:'', opcao1:'INST', opcao2:'LP', opcao3:'ISCA'
     tagIsca: iscaValue.opcao0, //opcao0:'', opcao1:'EBOOK', opcao2:'CHECKLIST', opcao3:'CARTILHA', opcao4:'CALCULADORA', opcao5:'PLANNER'
-    tagCategoria: categoriaValue.opcao0
-}; //opcao0:'', opcao1:'PME', opcao2:'MIDDLE', opcao3:'HI_MIDDLE', opcao4:'CORP', opcao5:'HI_CORP'
+    tagCategoria: categoriaValue.opcao0 //opcao0:'', opcao1:'PME', opcao2:'MIDDLE', opcao3:'HI_MIDDLE', opcao4:'CORP', opcao5:'HI_CORP'
+}; 
 
 // <<< SETUP <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -261,12 +261,12 @@ function ativaAvancar() {
 
             if (inputsDoSLide[i].type == 'radio' && !slideAtual.getElementsByClassName('w-form-formradioinput--inputType-custom radio-button w--redirected-checked').length) {
                 avancaBrasil = false;
-                console.log('length: ' + slideAtual.getElementsByClassName('w-form-formradioinput--inputType-custom radio-button w--redirected-checked').length);
+                console.log('length radio: ' + slideAtual.getElementsByClassName('w-form-formradioinput--inputType-custom radio-button w--redirected-checked').length);
             };
 
             if (inputsDoSLide[i].type == 'checkbox' && !slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length) {
                 avancaBrasil = false;
-                console.log('length: ' + slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length);
+                console.log('length checkbox: ' + slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length);
             };
         };
 
