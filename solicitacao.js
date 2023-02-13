@@ -265,7 +265,6 @@ function ativaAvancar() {
             };
 
             if (inputsDoSLide[i].type == 'checkbox') {
-                avancaBrasil = false;
                 console.log('length checkbox222222222: ' + slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length);
             };
 
@@ -356,7 +355,7 @@ function getInputs() {
                 console.log('inputsDoSLide[i].typex: ' + inputsDoSLide[i].type);
                 if (inputsDoSLide[i].type == 'checkbox') {
                     inputsDoSLide[i].onchange = function () {
-                        console.log('click click click');
+                        //console.log('click click click');
                         ativaAvancar();
                         resizear();
                     }; 
