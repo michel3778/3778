@@ -280,11 +280,14 @@ function ativaAvancar() {
             for (let i = 0; i < btsAvancar.length; i++) {
                 btsAvancar[i].style.pointerEvents = 'auto';
                 btsAvancar[i].style.backgroundColor = '#ffb71d';
+                btnSubmit.style.pointerEvents = 'auto';
+                
             };
         } else {
             for (let i = 0; i < btsAvancar.length; i++) {
                 btsAvancar[i].style.pointerEvents = 'none';
                 btsAvancar[i].style.backgroundColor = 'grey';
+                btnSubmit.style.pointerEvents = 'none';
             };
         }
     }, 50) 
