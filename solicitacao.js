@@ -281,6 +281,7 @@ function ativaAvancar() {
                 btsAvancar[i].style.pointerEvents = 'auto';
                 btsAvancar[i].style.backgroundColor = '#ffb71d';
                 btnSubmit.style.pointerEvents = 'auto';
+                btnSubmit.style.backgroundColor = 'green';
                 
             };
         } else {
@@ -394,3 +395,66 @@ function resizear() {
 
 window.addEventListener('resize', function (event) { resizear(); }, true);
 resizear();
+
+
+
+
+
+
+
+
+
+
+// ESTADOS E MUNICIPIOS
+
+	const urlEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome';
+	
+	async function getEstados() {
+		const estados = await fetch(urlEstados);
+			if (estados.status == 200) {
+			const estado = estados.json();
+			return estado;
+		} else {
+			console.log('erroooouuu…')
+		}
+	}
+	
+	async function setEstados() {
+		let estados = await getEstados();
+		let selectEstados = document.getElementById('select-estados');
+		selectEstados.innerHTML = '<option value="">Selecione…</option>';
+		
+		estados.forEach(function (e) {
+			selectEstados.innerHTML += '<option value="'+ e.id +'">'+ e.nome +'</option>';
+		});
+	}	
+	setEstados();
+
+
+	async function getMunicipios(estado) {
+		console.log('estado: ' + estado);
+		const urlMunicipios = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+ estado +'/municipios';
+		
+		const municipios = await fetch(urlMunicipios);
+			if (municipios.status == 200) {
+			const municipio = municipios.json();
+			return municipio;
+		} else {
+			console.log('erroooouuu…')
+		}
+	}
+	
+	async function setMunicipios(estado) {
+		let selectMunicipios = document.getElementById('select-municipios');
+		selectMunicipios.innerHTML = '<option value="">Aguarde…</option>';
+		let municipios = await getMunicipios(estado);
+		selectMunicipios.innerHTML = '<option value="">Selecione…</option>';
+		
+		municipios.forEach(function (e) {
+			selectMunicipios.innerHTML += '<option value="'+ e.id +'">'+ e.nome +'</option>';
+		});
+	}
+	
+	document.querySelector('#select-estados').addEventListener("input", function (e) {
+		setMunicipios(e.target.value);
+	});
