@@ -415,14 +415,15 @@ resizear();
 			const estado = estados.json();
 			return estado;
 		} else {
-			console.log('erroooouuu…')
+			let selectEstados = document.getElementById('select-estados');
+		    selectEstados.innerHTML = '<option value="">Erro...</option>';
 		}
 	}
 	
 	async function setEstados() {
 		let estados = await getEstados();
 		let selectEstados = document.getElementById('select-estados');
-		selectEstados.innerHTML = '<option value="">Selecione…</option>';
+		selectEstados.innerHTML = '<option value="">Selecione...</option>';
 		
 		estados.forEach(function (e) {
 			selectEstados.innerHTML += '<option value="'+ e.id +'">'+ e.nome +'</option>';
@@ -438,7 +439,8 @@ resizear();
 			const municipio = municipios.json();
 			return municipio;
 		} else {
-			console.log('erroooouuu…')
+			let selectMunicipios = document.getElementById('select-municipios');
+		    selectMunicipios.innerHTML = '<option value="">Erro...</option>';
 		}
 	}
 	
@@ -446,7 +448,7 @@ resizear();
 		let selectMunicipios = document.getElementById('select-municipios');
 		selectMunicipios.innerHTML = '<option value="">Aguarde…</option>';
 		let municipios = await getMunicipios(estado);
-		selectMunicipios.innerHTML = '<option value="">Selecione…</option>';
+		selectMunicipios.innerHTML = '<option value="">Selecione...</option>';
 		
 		municipios.forEach(function (e) {
 			selectMunicipios.innerHTML += '<option value="'+ e.id +'">'+ e.nome +'</option>';
