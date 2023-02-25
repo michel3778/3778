@@ -427,9 +427,7 @@ resizear();
 		estados.forEach(function (e) {
 			selectEstados.innerHTML += '<option value="'+ e.id +'">'+ e.nome +'</option>';
 		});
-	}	
-	setEstados();
-
+	}
 
 	async function getMunicipios(estado) {
 		console.log('estado: ' + estado);
@@ -455,6 +453,8 @@ resizear();
 		});
 	}
 	
+    
+    setEstados();
 	document.querySelector('#select-estados').addEventListener("input", function (e) {
 		setMunicipios(e.target.value);
 	});
