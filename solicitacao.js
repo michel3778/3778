@@ -241,6 +241,9 @@ let btsAvancar = oSlider.querySelectorAll('.bt-avancar');
 let inputsDoSLide;
 let slideAtual;
 let idNumber = 1;
+let totalVidas = oSlider.querySelector('#total-vidas');
+
+totalVidas.prop("disabled", true);
 
 
 
