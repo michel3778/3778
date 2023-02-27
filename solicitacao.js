@@ -55,8 +55,8 @@ let tags = {
 // >>> INIT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-if (origemParam != '') { tags.tagOrigem = origemParam; // console.log('Origem foi!'); };
-if (iscaParam != '') { tags.tagIsca = iscaParam; // console.log('Isca foi!'); };
+if (origemParam != '') { tags.tagOrigem = origemParam; }; // console.log('Origem foi!'); };
+if (iscaParam != '') { tags.tagIsca = iscaParam; }; // console.log('Isca foi!'); };
 
 let validRegex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 //let selectCargo = formElement.querySelector('[name="MMERGE12"]');
@@ -428,6 +428,7 @@ function resizear() {
 	
 	oSlider.addEventListener('input', function onInput(event) {
 		if (event.target.id == 'cnpj') {
+			console.log('É o CNPJ')
 			var x = this.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
 		    this.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
 		};
