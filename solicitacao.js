@@ -55,8 +55,8 @@ let tags = {
 // >>> INIT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-if (origemParam != '') { tags.tagOrigem = origemParam; console.log('Origem foi!'); };
-if (iscaParam != '') { tags.tagIsca = iscaParam; console.log('Isca foi!'); };
+if (origemParam != '') { tags.tagOrigem = origemParam; // console.log('Origem foi!'); };
+if (iscaParam != '') { tags.tagIsca = iscaParam; // console.log('Isca foi!'); };
 
 let validRegex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 //let selectCargo = formElement.querySelector('[name="MMERGE12"]');
@@ -99,8 +99,8 @@ formElement.querySelector('#formName').value = formElement.id;
 /* 
 function refreshTags() {
     tagElement.value = Object.values(tags).join(', ');
-    console.log('tags: ' + JSON.stringify(tags));
-    //			console.log(tagElement.value);
+    // console.log('tags: ' + JSON.stringify(tags));
+    //			// console.log(tagElement.value);
 };
 refreshTags();
 */
@@ -217,7 +217,7 @@ formElement.onsubmit = async function handleSubmit(event) {
             })
         };
     }).catch(error => {
-        console.log('catch error');
+        // console.log('catch error');
     });
 };
 
@@ -245,12 +245,11 @@ let totalVidas = oSlider.querySelector('#total-vidas');
 
 totalVidas.setAttribute("disabled", true);
 
+//selectEstados	= oSlider.querySelectorAll('.select-estados');
+//inputCnpj		= oSlider.querySelector('#cnpj');
 
-//CNPJ >>>>>>>>>>
-document.querySelector('#cnpj').addEventListener("input", function (e) {
-    var x = this.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
-    this.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
-});
+
+
 
 
 function ativaAvancar() {
@@ -263,20 +262,20 @@ function ativaAvancar() {
 
             if (inputsDoSLide[i].type == 'radio' && !slideAtual.getElementsByClassName('w-form-formradioinput--inputType-custom radio-button w--redirected-checked').length) {
                 avancaBrasil = false;
-                console.log('length radio: ' + slideAtual.getElementsByClassName('w-form-formradioinput--inputType-custom radio-button w--redirected-checked').length);
+//                // console.log('length radio: ' + slideAtual.getElementsByClassName('w-form-formradioinput--inputType-custom radio-button w--redirected-checked').length);
             };
 
             if (inputsDoSLide[i].type == 'checkbox') {
-                console.log('length checkbox222222222: ' + slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length);
+//                // console.log('length checkbox222222222: ' + slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length);
             };
 
             if (inputsDoSLide[i].type == 'checkbox' && !slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length) {
                 avancaBrasil = false;
-                console.log('length checkbox: ' + slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length);
+//                // console.log('length checkbox: ' + slideAtual.getElementsByClassName('w-checkbox-input--inputType-custom checkbox w--redirected-checked').length);
             };
         };
 
-        console.log('avancaBrasil: ' + avancaBrasil)
+//        // console.log('avancaBrasil: ' + avancaBrasil)
 
         if (avancaBrasil) {
             for (let i = 0; i < btsAvancar.length; i++) {
@@ -297,58 +296,7 @@ function ativaAvancar() {
 };
 
 
-oSlider.addEventListener('click', function handleClick(event) {
-    console.log('event.target: ' + event.target);
-    console.log('event.target.id: ' + event.target.id);
-    console.log('event.target.type: ' + event.target.type);
 
-    
-    if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
-    if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
-    if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
-    
-    //if (event.target.id == 'addUnidade') {
-    if (event.target.classList.contains('add-unidade')) {
-        console.log('addUnidade');
-        idNumber++;
-
-        const node = event.target.closest('.row');
-        const clone = node.cloneNode(true);
-        clone.id = 'unidade-' + idNumber;
-        
-        clone.querySelector('.input-estado').id = 'estado-' + idNumber;
-        clone.querySelector('.input-estado').name = 'estado-' + idNumber;
-        clone.querySelector('.input-estado').setAttribute('data-name', 'estado-' + idNumber);
-        clone.querySelector('.input-estado').value = '';
-
-        clone.querySelector('.input-cidade').id = 'cidade-' + idNumber;
-        clone.querySelector('.input-cidade').name = 'cidade-' + idNumber;
-        clone.querySelector('.input-cidade').setAttribute('data-name', 'cidade-' + idNumber);
-        clone.querySelector('.input-cidade').value = '';
-        
-        clone.querySelector('.input-vidas').id = 'vidas-' + idNumber;
-        clone.querySelector('.input-vidas').name = 'vidas-' + idNumber;
-        clone.querySelector('.input-vidas').setAttribute('data-name','vidas-' + idNumber);
-        clone.querySelector('.input-vidas').value = '';
-
-        document.querySelector("#unidades").appendChild(clone);
-
-        getInputs();
-        ativaAvancar();
-        resizear();
-    };
-
-    //if (event.target.id == 'removeUnidade') {
-    if (event.target.classList.contains('remove-unidade')) {
-        console.log('removeUnidade');
-        const node = event.target.closest('.row').remove();
-
-        getInputs();
-        ativaAvancar();
-        resizear();
-    };
-
-});
  
 
 function getInputs() {
@@ -358,10 +306,10 @@ function getInputs() {
             inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], input[type="checkbox"], select, textarea');
             
             for (let i = 0; i < inputsDoSLide.length; i++) {
-                console.log('inputsDoSLide[i].typex: ' + inputsDoSLide[i].type);
+//                // console.log('inputsDoSLide[i].typex: ' + inputsDoSLide[i].type);
                 if (inputsDoSLide[i].type == 'checkbox') {
                     inputsDoSLide[i].onchange = function () {
-                        //console.log('click click click');
+                        //// console.log('click click click');
                         ativaAvancar();
                         resizear();
                     }; 
@@ -395,8 +343,7 @@ function resizear() {
     oSlider.style.height = targetHeight + 'px';
 };
 
-window.addEventListener('resize', function (event) { resizear(); }, true);
-resizear();
+
 
 
 
@@ -433,7 +380,7 @@ resizear();
 	}
 
 	async function getMunicipios(estado) {
-		console.log('estado: ' + estado);
+		// console.log('estado: ' + estado);
 		const urlMunicipios = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+ estado +'/municipios';
 		
 		const municipios = await fetch(urlMunicipios);
@@ -458,7 +405,90 @@ resizear();
 	}
 	
     
-    setEstados();
-	document.querySelector('#select-estados').addEventListener("input", function (e) {
-		setMunicipios(e.target.value);
+    
+    
+    
+    
+    
+
+
+//	document.querySelector('#select-estados').addEventListener("input", function (e) {
+//		setMunicipios(e.target.value);
+//	});
+//	
+//	//CNPJ >>>>>>>>>>
+//	document.querySelector('#cnpj').addEventListener("input", function inputCnpj(e) {
+//	    var x = this.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
+//	    this.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
+//	});
+	
+	window.addEventListener('resize', function onResize(event) { resizear(); }, true);
+	
+	
+	
+	oSlider.addEventListener('input', function onInput(event) {
+		if (event.target.id == 'cnpj') {
+			var x = this.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
+		    this.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
+		};
+		if (event.target.classList.contains('select-estados')) { setMunicipios(e.target.value);	};
 	});
+	
+	
+	
+	
+	oSlider.addEventListener('click', function onClick(event) {
+	    // console.log('event.target: ' + event.target);
+	    // console.log('event.target.id: ' + event.target.id);
+	    // console.log('event.target.type: ' + event.target.type);
+	
+	    
+	    if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
+	    if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
+	    if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
+	    
+	    //if (event.target.id == 'addUnidade') {
+	    if (event.target.classList.contains('add-unidade')) {
+	        // console.log('addUnidade');
+	        idNumber++;
+	
+	        const node = event.target.closest('.row');
+	        const clone = node.cloneNode(true);
+	        clone.id = 'unidade-' + idNumber;
+	        
+	        clone.querySelector('.input-estado').id = 'estado-' + idNumber;
+	        clone.querySelector('.input-estado').name = 'estado-' + idNumber;
+	        clone.querySelector('.input-estado').setAttribute('data-name', 'estado-' + idNumber);
+	        clone.querySelector('.input-estado').value = '';
+	
+	        clone.querySelector('.input-cidade').id = 'cidade-' + idNumber;
+	        clone.querySelector('.input-cidade').name = 'cidade-' + idNumber;
+	        clone.querySelector('.input-cidade').setAttribute('data-name', 'cidade-' + idNumber);
+	        clone.querySelector('.input-cidade').value = '';
+	        
+	        clone.querySelector('.input-vidas').id = 'vidas-' + idNumber;
+	        clone.querySelector('.input-vidas').name = 'vidas-' + idNumber;
+	        clone.querySelector('.input-vidas').setAttribute('data-name','vidas-' + idNumber);
+	        clone.querySelector('.input-vidas').value = '';
+	
+	        document.querySelector("#unidades").appendChild(clone);
+	
+	        getInputs();
+	        ativaAvancar();
+	        resizear();
+	    };
+	
+	    //if (event.target.id == 'removeUnidade') {
+	    if (event.target.classList.contains('remove-unidade')) {
+	        // console.log('removeUnidade');
+	        const node = event.target.closest('.row').remove();
+	
+	        getInputs();
+	        ativaAvancar();
+	        resizear();
+	    };
+	
+	});
+	
+    setEstados();
+    resizear();
