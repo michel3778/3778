@@ -243,8 +243,7 @@ let slideAtual;
 let idNumber = 1;
 let totalVidas = oSlider.querySelector('#total-vidas');
 
-totalVidas.prop("disabled", true);
-
+totalVidas.setAttribute("disabled", true);
 
 
 //CNPJ >>>>>>>>>>
