@@ -496,9 +496,10 @@ function resizear() {
 		if (event.target.classList.contains('w-tab-link')) { setTimeout(function () { resizear(); }, 300) };
 		
 		
-	}); 
+	});
 	
 	window.addEventListener('resize', function onResize(event) { resizear(); }, true);
 	
     setEstados();
     resizear();
+    ativaAvancar();
