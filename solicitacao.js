@@ -232,18 +232,19 @@ formElement.onsubmit = async function handleSubmit(event) {
 
 
 
-let oSlider = document.querySelector('#slider-pedido');
-let osSlides = oSlider.querySelectorAll('.w-slide');
-let prevSlide = oSlider.querySelector('#prev-slide');
-let nextSlide = oSlider.querySelector('#next-slide');
+let oSlider			= document.querySelector('#slider-pedido');
+let osSlides			= oSlider.querySelectorAll('.w-slide');
+let prevSlide		= oSlider.querySelector('#prev-slide');
+let nextSlide		= oSlider.querySelector('#next-slide');
 //let btnComecar = oSlider.querySelector('#comecar');
-let btsAvancar = oSlider.querySelectorAll('.bt-avancar');
+let btsAvancar		= oSlider.querySelectorAll('.bt-avancar');
 let inputsDoSLide;
 let slideAtual;
-let idNumber = 1;
-let totalVidas = oSlider.querySelector('#total-vidas');
+let idNumber			= 1;
+let inputTotalVidas	= oSlider.querySelector('#total-vidas');
+let totalAllVidas	= 0;
 
-totalVidas.setAttribute("disabled", true);
+inputTotalVidas.setAttribute("disabled", true);
 
 //selectEstados	= oSlider.querySelectorAll('.select-estados');
 //inputCnpj		= oSlider.querySelector('#cnpj');
@@ -393,10 +394,21 @@ function resizear() {
 		}
 	}
 	
+//	async function setMunicipios(estado) {
+//		let selectMunicipios = document.getElementById('select-municipios');
+//		selectMunicipios.innerHTML = '<option value="">Aguarde…</option>';
+//		let municipios = await getMunicipios(estado);
+//		selectMunicipios.innerHTML = '<option value="">Selecione...</option>';
+//		
+//		municipios.forEach(function (e) {
+//			selectMunicipios.innerHTML += '<option value="'+ e.id +'">'+ e.nome +'</option>';
+//		});
+//	}
+	
 	async function setMunicipios(estado) {
-		let selectMunicipios = document.getElementById('select-municipios');
+		let selectMunicipios = estado.parentElement.parentElement.querySelector('.input-cidade');
 		selectMunicipios.innerHTML = '<option value="">Aguarde…</option>';
-		let municipios = await getMunicipios(estado);
+		let municipios = await getMunicipios(estado.value);
 		selectMunicipios.innerHTML = '<option value="">Selecione...</option>';
 		
 		municipios.forEach(function (e) {
@@ -406,24 +418,52 @@ function resizear() {
 	
     
     
-    
-    
-    
-    
-
-
-//	document.querySelector('#select-estados').addEventListener("input", function (e) {
-//		setMunicipios(e.target.value);
-//	});
-//	
-//	//CNPJ >>>>>>>>>>
-//	document.querySelector('#cnpj').addEventListener("input", function inputCnpj(e) {
-//	    var x = this.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
-//	    this.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
-//	});
+    function renameInputs() {
+		let allItens			= document.querySelectorAll("#unidades .row");
+		idNumber			= 1;
+			
+		allItens.forEach(function (element, index) {
+			console.log(element);
+			element.id = 'unidade-' + idNumber;
+			
+			element.querySelector('.input-estado').parentElement.querySelector('label').setAttribute('for', 'estado-' + idNumber);
+			element.querySelector('.input-estado').parentElement.querySelector('label').id = 'estado-' + idNumber;
+			element.querySelector('.input-estado').id = 'estado-' + idNumber;
+			element.querySelector('.input-estado').name = 'estado-' + idNumber;
+			element.querySelector('.input-estado').setAttribute('data-name', 'estado-' + idNumber);
+//			element.querySelector('.input-estado').value = '';
+			
+			element.querySelector('.input-cidade').parentElement.querySelector('label').setAttribute('for', 'cidade-' + idNumber);
+			element.querySelector('.input-cidade').parentElement.querySelector('label').id = 'cidade-' + idNumber;
+			element.querySelector('.input-cidade').id = 'cidade-' + idNumber;
+			element.querySelector('.input-cidade').name = 'cidade-' + idNumber;
+			element.querySelector('.input-cidade').setAttribute('data-name', 'cidade-' + idNumber);
+//			element.querySelector('.input-cidade').value = '';
+			
+			element.querySelector('.input-vidas').id = 'vidas-' + idNumber;
+			element.querySelector('.input-vidas').name = 'vidas-' + idNumber;
+			element.querySelector('.input-vidas').setAttribute('data-name','vidas-' + idNumber);
+//			element.querySelector('.input-vidas').value = '';
+			
+			idNumber++;
+		});
+		
+		getInputs();
+        ativaAvancar();
+        resizear();
+		atualizaVidas();
+	};
 	
-	window.addEventListener('resize', function onResize(event) { resizear(); }, true);
-	
+	function atualizaVidas() {
+		let allIinputVidas		= oSlider.querySelectorAll('.input-vidas');
+		let totalAllVidas		= 0;
+		
+		allIinputVidas.forEach(function (element, index) {
+			totalAllVidas += Number(element.value);
+		});
+		
+		inputTotalVidas.value = parseInt(totalAllVidas);
+	};
 	
 	
 	oSlider.addEventListener('input', function onInput(event) {
@@ -431,58 +471,40 @@ function resizear() {
 			var x = event.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
 		    event.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
 		};
-		if (event.target.classList.contains('input-estado')) { setMunicipios(e.target.value);	};
+		if (event.target.classList.contains('input-estado')) { setMunicipios(event.target);	};
+		if (event.target.classList.contains('input-vidas')) { atualizaVidas(); };
 	});
 	
 	
-	
-	
 	oSlider.addEventListener('click', function onClick(event) {
-	    // console.log('event.target: ' + event.target);
-	    // console.log('event.target.id: ' + event.target.id);
-	    // console.log('event.target.type: ' + event.target.type);
-	
+		console.log('event.target: ' + event.target);
+	    console.log('event.target.id: ' + event.target.id);
+	    console.log('event.target.type: ' + event.target.type);
+		
 	    if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
 	    if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
 	    if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
 	    
 	    if (event.target.classList.contains('add-unidade')) {
-	        idNumber++;
-	
 	        const node = event.target.closest('.row');
 	        const clone = node.cloneNode(true);
-	        clone.id = 'unidade-' + idNumber;
-	        
-	        clone.querySelector('.input-estado').id = 'estado-' + idNumber;
-	        clone.querySelector('.input-estado').name = 'estado-' + idNumber;
-	        clone.querySelector('.input-estado').setAttribute('data-name', 'estado-' + idNumber);
-	        clone.querySelector('.input-estado').value = '';
-	
-	        clone.querySelector('.input-cidade').id = 'cidade-' + idNumber;
-	        clone.querySelector('.input-cidade').name = 'cidade-' + idNumber;
-	        clone.querySelector('.input-cidade').setAttribute('data-name', 'cidade-' + idNumber);
-	        clone.querySelector('.input-cidade').value = '';
-	        
-	        clone.querySelector('.input-vidas').id = 'vidas-' + idNumber;
-	        clone.querySelector('.input-vidas').name = 'vidas-' + idNumber;
-	        clone.querySelector('.input-vidas').setAttribute('data-name','vidas-' + idNumber);
-	        clone.querySelector('.input-vidas').value = '';
-	
-	        document.querySelector("#unidades").appendChild(clone);
-	
-	        getInputs();
-	        ativaAvancar();
-	        resizear();
+			clone.querySelector('.input-vidas').value = 0;
+			clone.querySelector('.input-cidade').innerHTML = '<option value="">Aguarde…</option>';
+	        document.querySelector("#unidades").appendChild(clone);			
+			renameInputs();
 	    };
 	
 	    if (event.target.classList.contains('remove-unidade')) {
 	        const node = event.target.closest('.row').remove();
-	
-	        getInputs();
-	        ativaAvancar();
-	        resizear();
+			renameInputs();
 	    };
+		
+		if (event.target.classList.contains('w-tab-link')) { setTimeout(function () { resizear(); }, 300) };
+		
+		
 	});
+	
+	window.addEventListener('resize', function onResize(event) { resizear(); }, true);
 	
     setEstados();
     resizear();
