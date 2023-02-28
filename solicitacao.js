@@ -502,4 +502,5 @@ function resizear() {
 	
     setEstados();
     resizear();
+    getInputs();
     ativaAvancar();
