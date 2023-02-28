@@ -348,13 +348,6 @@ function resizear() {
 
 
 
-
-
-
-
-
-
-
 // ESTADOS E MUNICIPIOS
 
 	const urlEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome';
@@ -473,6 +466,7 @@ function resizear() {
 		};
 		if (event.target.classList.contains('input-estado')) { setMunicipios(event.target);	};
 		if (event.target.classList.contains('input-vidas')) { atualizaVidas(); };
+		console.log('ddddddd');
 	});
 	
 	
@@ -488,7 +482,7 @@ function resizear() {
 	    if (event.target.classList.contains('add-unidade')) {
 	        const node = event.target.closest('.row');
 	        const clone = node.cloneNode(true);
-			clone.querySelector('.input-vidas').value = 0;
+			clone.querySelector('.input-vidas').value = "";
 			clone.querySelector('.input-cidade').innerHTML = '<option value="">Aguarde…</option>';
 	        document.querySelector("#unidades").appendChild(clone);			
 			renameInputs();
