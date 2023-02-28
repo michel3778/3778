@@ -350,42 +350,42 @@ function resizear() {
 
 // ESTADOS E MUNICIPIOS
 
-	const urlEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome';
-	
-	async function getEstados() {
-		const estados = await fetch(urlEstados);
-			if (estados.status == 200) {
-			const estado = estados.json();
-			return estado;
-		} else {
-			let selectEstados = document.getElementById('select-estados');
-		    selectEstados.innerHTML = '<option value="">Erro...</option>';
-		}
-	}
-	
-	async function setEstados() {
-		let estados = await getEstados();
-		let selectEstados = document.getElementById('select-estados');
-		selectEstados.innerHTML = '<option value="">Selecione...</option>';
-		
-		estados.forEach(function (e) {
-			selectEstados.innerHTML += '<option value="'+ e.id +'">'+ e.nome +'</option>';
-		});
-	}
+const urlEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome';
 
-	async function getMunicipios(estado) {
-		// console.log('estado: ' + estado);
-		const urlMunicipios = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+ estado +'/municipios';
-		
-		const municipios = await fetch(urlMunicipios);
-			if (municipios.status == 200) {
-			const municipio = municipios.json();
-			return municipio;
-		} else {
-			let selectMunicipios = document.getElementById('select-municipios');
-		    selectMunicipios.innerHTML = '<option value="">Erro...</option>';
-		}
-	}
+async function getEstados() {
+    const estados = await fetch(urlEstados);
+        if (estados.status == 200) {
+        const estado = estados.json();
+        return estado;
+    } else {
+        let selectEstados = document.getElementById('select-estados');
+        selectEstados.innerHTML = '<option value="">Erro...</option>';
+    }
+}
+
+async function setEstados() {
+    let estados = await getEstados();
+    let selectEstados = document.getElementById('select-estados');
+    selectEstados.innerHTML = '<option value="">Selecione...</option>';
+    
+    estados.forEach(function (e) {
+        selectEstados.innerHTML += '<option value="'+ e.id +'">'+ e.nome +'</option>';
+    });
+}
+
+async function getMunicipios(estado) {
+    // console.log('estado: ' + estado);
+    const urlMunicipios = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+ estado +'/municipios';
+    
+    const municipios = await fetch(urlMunicipios);
+        if (municipios.status == 200) {
+        const municipio = municipios.json();
+        return municipio;
+    } else {
+        let selectMunicipios = document.getElementById('select-municipios');
+        selectMunicipios.innerHTML = '<option value="">Erro...</option>';
+    }
+}
 	
 //	async function setMunicipios(estado) {
 //		let selectMunicipios = document.getElementById('select-municipios');
@@ -398,109 +398,108 @@ function resizear() {
 //		});
 //	}
 	
-	async function setMunicipios(estado) {
-		let selectMunicipios = estado.parentElement.parentElement.querySelector('.input-cidade');
-		selectMunicipios.innerHTML = '<option value="">Aguarde…</option>';
-		let municipios = await getMunicipios(estado.value);
-		selectMunicipios.innerHTML = '<option value="">Selecione...</option>';
-		
-		municipios.forEach(function (e) {
-			selectMunicipios.innerHTML += '<option value="'+ e.id +'">'+ e.nome +'</option>';
-		});
-	}
-	
+async function setMunicipios(estado) {
+    let selectMunicipios = estado.parentElement.parentElement.querySelector('.input-cidade');
+    selectMunicipios.innerHTML = '<option value="">Aguarde…</option>';
+    let municipios = await getMunicipios(estado.value);
+    selectMunicipios.innerHTML = '<option value="">Selecione...</option>';
     
-    
-    function renameInputs() {
-		let allItens			= document.querySelectorAll("#unidades .row");
-		idNumber			= 1;
-			
-		allItens.forEach(function (element, index) {
-			console.log(element);
-			element.id = 'unidade-' + idNumber;
-			
-			element.querySelector('.input-estado').parentElement.querySelector('label').setAttribute('for', 'estado-' + idNumber);
-			element.querySelector('.input-estado').parentElement.querySelector('label').id = 'estado-' + idNumber;
-			element.querySelector('.input-estado').id = 'estado-' + idNumber;
-			element.querySelector('.input-estado').name = 'estado-' + idNumber;
-			element.querySelector('.input-estado').setAttribute('data-name', 'estado-' + idNumber);
+    municipios.forEach(function (e) {
+        selectMunicipios.innerHTML += '<option value="'+ e.id +'">'+ e.nome +'</option>';
+    });
+}
+
+
+
+function renameInputs() {
+    let allItens			= document.querySelectorAll("#unidades .row");
+    idNumber			= 1;
+        
+    allItens.forEach(function (element, index) {
+        console.log(element);
+        element.id = 'unidade-' + idNumber;
+        
+        element.querySelector('.input-estado').parentElement.querySelector('label').setAttribute('for', 'estado-' + idNumber);
+        element.querySelector('.input-estado').parentElement.querySelector('label').id = 'estado-' + idNumber;
+        element.querySelector('.input-estado').id = 'estado-' + idNumber;
+        element.querySelector('.input-estado').name = 'estado-' + idNumber;
+        element.querySelector('.input-estado').setAttribute('data-name', 'estado-' + idNumber);
 //			element.querySelector('.input-estado').value = '';
-			
-			element.querySelector('.input-cidade').parentElement.querySelector('label').setAttribute('for', 'cidade-' + idNumber);
-			element.querySelector('.input-cidade').parentElement.querySelector('label').id = 'cidade-' + idNumber;
-			element.querySelector('.input-cidade').id = 'cidade-' + idNumber;
-			element.querySelector('.input-cidade').name = 'cidade-' + idNumber;
-			element.querySelector('.input-cidade').setAttribute('data-name', 'cidade-' + idNumber);
+        
+        element.querySelector('.input-cidade').parentElement.querySelector('label').setAttribute('for', 'cidade-' + idNumber);
+        element.querySelector('.input-cidade').parentElement.querySelector('label').id = 'cidade-' + idNumber;
+        element.querySelector('.input-cidade').id = 'cidade-' + idNumber;
+        element.querySelector('.input-cidade').name = 'cidade-' + idNumber;
+        element.querySelector('.input-cidade').setAttribute('data-name', 'cidade-' + idNumber);
 //			element.querySelector('.input-cidade').value = '';
-			
-			element.querySelector('.input-vidas').id = 'vidas-' + idNumber;
-			element.querySelector('.input-vidas').name = 'vidas-' + idNumber;
-			element.querySelector('.input-vidas').setAttribute('data-name','vidas-' + idNumber);
+        
+        element.querySelector('.input-vidas').id = 'vidas-' + idNumber;
+        element.querySelector('.input-vidas').name = 'vidas-' + idNumber;
+        element.querySelector('.input-vidas').setAttribute('data-name','vidas-' + idNumber);
 //			element.querySelector('.input-vidas').value = '';
-			
-			idNumber++;
-		});
-		
-		getInputs();
-        ativaAvancar();
-        resizear();
-		atualizaVidas();
-	};
-	
-	function atualizaVidas() {
-		let allIinputVidas		= oSlider.querySelectorAll('.input-vidas');
-		let totalAllVidas		= 0;
-		
-		allIinputVidas.forEach(function (element, index) {
-			totalAllVidas += Number(element.value);
-		});
-		
-		inputTotalVidas.value = parseInt(totalAllVidas);
-	};
-	
-	
-	oSlider.addEventListener('input', function onInput(event) {
-		if (event.target.id == 'cnpj') {
-			var x = event.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
-		    event.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
-		};
-		if (event.target.classList.contains('input-estado')) { setMunicipios(event.target);	};
-		if (event.target.classList.contains('input-vidas')) { atualizaVidas(); };
-		console.log('ddddddd');
-	});
-	
-	
-	oSlider.addEventListener('click', function onClick(event) {
-		console.log('event.target: ' + event.target);
-	    console.log('event.target.id: ' + event.target.id);
-	    console.log('event.target.type: ' + event.target.type);
-		
-	    if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
-	    if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
-	    if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
-	    
-	    if (event.target.classList.contains('add-unidade')) {
-	        const node = event.target.closest('.row');
-	        const clone = node.cloneNode(true);
-			clone.querySelector('.input-vidas').value = "";
-			clone.querySelector('.input-cidade').innerHTML = '<option value="">Aguarde…</option>';
-	        document.querySelector("#unidades").appendChild(clone);			
-			renameInputs();
-	    };
-	
-	    if (event.target.classList.contains('remove-unidade')) {
-	        const node = event.target.closest('.row').remove();
-			renameInputs();
-	    };
-		
-		if (event.target.classList.contains('w-tab-link')) { setTimeout(function () { resizear(); }, 300) };
-		
-		
-	});
-	
-	window.addEventListener('resize', function onResize(event) { resizear(); }, true);
-	
-    setEstados();
-    resizear();
+        
+        idNumber++;
+    });
+    
     getInputs();
     ativaAvancar();
+    resizear();
+    atualizaVidas();
+};
+
+function atualizaVidas() {
+    let allIinputVidas		= oSlider.querySelectorAll('.input-vidas');
+    let totalAllVidas		= 0;
+    
+    allIinputVidas.forEach(function (element, index) {
+        totalAllVidas += Number(element.value);
+    });
+    
+    inputTotalVidas.value = parseInt(totalAllVidas);
+};
+
+
+oSlider.addEventListener('input', function onInput(event) {
+    if (event.target.id == 'cnpj') {
+        var x = event.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
+        event.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
+    };
+    if (event.target.classList.contains('input-estado')) { setMunicipios(event.target);	};
+    if (event.target.classList.contains('input-vidas')) { atualizaVidas(); };
+    console.log('ddddddd');
+});
+
+
+oSlider.addEventListener('click', function onClick(event) {
+    console.log('event.target: ' + event.target);
+    console.log('event.target.id: ' + event.target.id);
+    console.log('event.target.type: ' + event.target.type);
+    
+    if (event.target.id == 'comecar') { event.preventDefault(); nextSlide.click(); changeSlide(); };
+    if (event.target.classList.contains('bt-avancar')) { event.preventDefault(); nextSlide.click(); changeSlide(); };
+    if (event.target.classList.contains('bt-voltar')) { event.preventDefault(); prevSlide.click(); changeSlide(); };
+    
+    if (event.target.classList.contains('add-unidade')) {
+        const node = event.target.closest('.row');
+        const clone = node.cloneNode(true);
+        clone.querySelector('.input-vidas').value = "";
+        clone.querySelector('.input-cidade').innerHTML = '<option value="">Aguarde…</option>';
+        document.querySelector("#unidades").appendChild(clone);			
+        renameInputs();
+    };
+
+    if (event.target.classList.contains('remove-unidade')) {
+        const node = event.target.closest('.row').remove();
+        renameInputs();
+    };
+    
+    if (event.target.classList.contains('w-tab-link')) { setTimeout(function () { resizear(); }, 300) };
+    
+    
+});
+
+window.addEventListener('resize', function onResize(event) { resizear(); }, true);
+
+setEstados();
+resizear();
+getInputs();
