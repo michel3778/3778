@@ -236,7 +236,6 @@ let oSlider			= document.querySelector('#slider-pedido');
 let osSlides			= oSlider.querySelectorAll('.w-slide');
 let prevSlide		= oSlider.querySelector('#prev-slide');
 let nextSlide		= oSlider.querySelector('#next-slide');
-//let btnComecar = oSlider.querySelector('#comecar');
 let btsAvancar		= oSlider.querySelectorAll('.bt-avancar');
 let inputsDoSLide;
 let slideAtual;
@@ -307,10 +306,8 @@ function getInputs() {
             inputsDoSLide = osSlides[i].querySelectorAll('input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="radio"], input[type="checkbox"], select, textarea');
             
             for (let i = 0; i < inputsDoSLide.length; i++) {
-//                // console.log('inputsDoSLide[i].typex: ' + inputsDoSLide[i].type);
                 if (inputsDoSLide[i].type == 'checkbox') {
                     inputsDoSLide[i].onchange = function () {
-                        //// console.log('click click click');
                         ativaAvancar();
                         resizear();
                     }; 
@@ -345,11 +342,7 @@ function resizear() {
 };
 
 
-
-
-
 // ESTADOS E MUNICIPIOS
-
 	const urlEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome';
 	
 	async function getEstados() {
@@ -386,17 +379,6 @@ function resizear() {
 		    selectMunicipios.innerHTML = '<option value="">Erro...</option>';
 		}
 	}
-	
-//	async function setMunicipios(estado) {
-//		let selectMunicipios = document.getElementById('select-municipios');
-//		selectMunicipios.innerHTML = '<option value="">Aguarde…</option>';
-//		let municipios = await getMunicipios(estado);
-//		selectMunicipios.innerHTML = '<option value="">Selecione...</option>';
-//		
-//		municipios.forEach(function (e) {
-//			selectMunicipios.innerHTML += '<option value="'+ e.id +'">'+ e.nome +'</option>';
-//		});
-//	}
 	
 	async function setMunicipios(estado) {
 		let selectMunicipios = estado.parentElement.parentElement.querySelector('.input-cidade');
@@ -494,12 +476,14 @@ function resizear() {
 	    };
 		
 		if (event.target.classList.contains('w-tab-link')) { setTimeout(function () { resizear(); }, 300) };
-		
-		
 	});
 	
 	window.addEventListener('resize', function onResize(event) { resizear(); }, true);
 	
-    setEstados();
-    resizear();
-    getInputs();
+	setTimeout(function () {
+		setEstados();
+	    resizear();
+	    getInputs();
+		console.log('sssss')
+	}, 200)
+    
